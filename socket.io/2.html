@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>下 | 帅华君的官方网站</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="探索技术与艺术融合之美">
+    
+    <link rel="preload" href="/assets/css/0.styles.ea9a1c08.css" as="style"><link rel="preload" href="/assets/js/app.fb1a0a14.js" as="script"><link rel="preload" href="/assets/js/2.91a50989.js" as="script"><link rel="preload" href="/assets/js/11.aff1aaae.js" as="script"><link rel="prefetch" href="/assets/js/10.89ce8a35.js"><link rel="prefetch" href="/assets/js/12.e8a93297.js"><link rel="prefetch" href="/assets/js/13.6ce78f58.js"><link rel="prefetch" href="/assets/js/14.d0c6074a.js"><link rel="prefetch" href="/assets/js/15.8855ed5b.js"><link rel="prefetch" href="/assets/js/16.98d0e1bf.js"><link rel="prefetch" href="/assets/js/17.ccc7c9c0.js"><link rel="prefetch" href="/assets/js/18.613c6e37.js"><link rel="prefetch" href="/assets/js/19.0d799dd4.js"><link rel="prefetch" href="/assets/js/20.e1bad95c.js"><link rel="prefetch" href="/assets/js/21.1f1da1b2.js"><link rel="prefetch" href="/assets/js/22.3ea205e0.js"><link rel="prefetch" href="/assets/js/23.d53d2ade.js"><link rel="prefetch" href="/assets/js/24.be3641c5.js"><link rel="prefetch" href="/assets/js/25.1306bf3f.js"><link rel="prefetch" href="/assets/js/26.20fb7be3.js"><link rel="prefetch" href="/assets/js/27.13119909.js"><link rel="prefetch" href="/assets/js/28.8e4cc3d2.js"><link rel="prefetch" href="/assets/js/29.cc006bf1.js"><link rel="prefetch" href="/assets/js/3.95acea77.js"><link rel="prefetch" href="/assets/js/30.cbecb82c.js"><link rel="prefetch" href="/assets/js/31.94708070.js"><link rel="prefetch" href="/assets/js/32.73ca1142.js"><link rel="prefetch" href="/assets/js/33.b3fbd2b6.js"><link rel="prefetch" href="/assets/js/34.2e7f6326.js"><link rel="prefetch" href="/assets/js/35.e75d24d2.js"><link rel="prefetch" href="/assets/js/36.6ccd9c3c.js"><link rel="prefetch" href="/assets/js/37.dd920529.js"><link rel="prefetch" href="/assets/js/38.d9f3003f.js"><link rel="prefetch" href="/assets/js/4.dffe4a9b.js"><link rel="prefetch" href="/assets/js/5.bbcdd047.js"><link rel="prefetch" href="/assets/js/6.bdecffa5.js"><link rel="prefetch" href="/assets/js/7.5d46eecb.js"><link rel="prefetch" href="/assets/js/8.06eda253.js"><link rel="prefetch" href="/assets/js/9.3289342a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.ea9a1c08.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/sh-logo.png" alt="帅华君的官方网站" class="logo"> <span class="site-name can-hide">帅华君的官方网站</span></a> <div class="links"><!----> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><p>socket.io基于WebSocket协议封装，兼容不支持ws的浏览器采用ajax轮询，socket.io为开发者提供服务端和客户端两套库，无需了解全部ws底层原理，好入门，上手快。学会socket.io后可搭建类似QQ和微信这种即时通信工具的Web版，既可以一对一对话也可开房间组队创建聊天群组，我尝试过传输的媒体类型有文本、图像两种，数据都可由1和0表示，所以理论上可传输任何媒体形式。</p> <h2 id="客户端api"><a href="#客户端api" class="header-anchor">#</a> 客户端API</h2> <p>IO</p> <p>如果你使用的是标准化的JS库，则暴露为io这一命名空间；如果你是用Node 编译，则使用</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'socket.io-client'</span><span class="token punctuation">)</span>
+</code></pre></div><p>引入socket.io的JS库</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;script src=&quot;/socket.io/socket.io.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+  const socket = io('http://localhost');
+&lt;/script&gt;
+</code></pre></div><p>导入socket.io模块</p> <div class="language- extra-class"><pre class="language-text"><code>const io = require('socket.io-client');
+// or with import syntax
+import io from 'socket.io-client';
+</code></pre></div><p>io.protocol</p> <p>（数值型）</p> <p>表示协议版本号。</p> <p>io(url[, options])</p> <p>url （字符串）默认的指向 widnow.location</p> <p>option （Object）</p> <p>forceNew （布尔型）是否重用当前已存在的链接。</p> <p>Return Socket</p> <p>使用给定的URL创建一个新的 Manager ，并且尝试重用一个已存在的 Manager 等待随后调用，除非 multiplex 的选项为 false ，作用同 force new connection:true 或者 forceNew: true。</p> <p>一个新的socket实例将返回命名空间指定的socket，该命名空间由URL指定，默认的为 / 。举个栗子，如果 url 为http://localhost/users， 则将会对 http://localhost 进行传输连接，并且Socket.IO连接将会对/users建立连接。</p> <p>你也也可以提供查询参数，直接将查询参数添加到 url 上即可：</p> <div class="language- extra-class"><pre class="language-text"><code>http://localhost/users?token=abc
+</code></pre></div><p>详情查看<a target="_blank" href="https://socket.io/docs/client-api/#new-manager-url-options">new Manager(url[, options]) </a></p> <p>初始化示例</p> <p>使用多路复用</p> <p>默认的，当连接道不同的命名空间后一个单一的链接将会被使用。</p> <div class="language- extra-class"><pre class="language-text"><code>const socket = io();
+const adminSocket = io('/admin');
+// a single connection will be established
+</code></pre></div><p>注意：重用相同的命名空间将会创建两个连接：</p> <div class="language- extra-class"><pre class="language-text"><code>const socket = io();
+const socket2 = io();
+// will also create two distinct connections
+</code></pre></div><p>自定义path</p> <div class="language- extra-class"><pre class="language-text"><code>const socket = io('http://localhost', {
+  path: '/myownpath'
+});
+
+// server-side
+const io = require('socket.io')({
+  path: '/myownpath'
+});
+</code></pre></div><p>这里，socket连接到 admin 命名空间，使用自定义的路径 mypath。</p> <p>请求地址看起来像这样：</p> <div class="language- extra-class"><pre class="language-text"><code>localhost/mypath/?EIO=3&amp;transport=polling&amp;sid=&lt;id&gt;
+</code></pre></div><p>命名空间将会作为数据的一部分被发送。</p> <p>携带查询参数</p> <div class="language- extra-class"><pre class="language-text"><code>const socket = io('http://localhost?token=abc');
+// server-side
+const io = require('socket.io')();
+// middleware
+io.use((socket, next) =&gt; {
+  let token = socket.handshake.query.token;
+  if (isValid(token)) {
+    return next();
+  }
+  return next(new Error('authentication error'));
+});
+// then
+io.on('connection', (socket) =&gt; {
+  let token = socket.handshake.query.token;
+  // ...
+});
+</code></pre></div><p>携带查询选项</p> <div class="language- extra-class"><pre class="language-text"><code>const socket = io({
+  query: {
+    token: 'cde'
+  }
+});
+</code></pre></div><p>查询内容可以在重新连接时更新：</p> <div class="language- extra-class"><pre class="language-text"><code>socket.on('reconnect_attempt', () =&gt; {
+  socket.io.opts.query = {
+    token: 'fgh'
+  }
+});
+</code></pre></div><p>携带额外的请求头 extraHeaders</p> <p>仅当建立的是轮询连接时才起作用（默认为polling轮询），当使用 websocket 建立传输时，自定义的请求头将不会被添加，因为WebSockets握手信号不信任自定义的请求头</p> <div class="language- extra-class"><pre class="language-text"><code>const socket = io({
+  transportOptions: {
+    polling: {
+      extraHeaders: {
+        'x-clientid': 'abc'
+      }
+    }
+  }
+});
+// 服务器端
+const io = require('socket.io')();
+// 中间件
+io.use((socket, next) =&gt; {
+  let clientId = socket.handshake.headers['x-clientid'];
+  if (isValid(clientId)) {
+    return next();
+  }
+  return next(new Error('authentication error'));
+});
+</code></pre></div><p>仅当通过 websocket 传输时</p> <p>默认的，长轮询连接会被首次创建，随后升级到更好的传输方式（比如WebSocket）。</p> <p>如果你喜欢挑战性，这一部分可以被跳过。</p> <div class="language- extra-class"><pre class="language-text"><code>const socket = io({
+  transports: ['websocket']
+});
+// on reconnection, reset the transports option, as the Websocket
+// connection may have failed (caused by proxy, firewall, browser, ...)
+socket.on('reconnect_attempt', () =&gt; {
+  socket.io.opts.transports = ['polling', 'websocket'];
+});
+</code></pre></div><p>携带自定义的解析器</p> <div class="language- extra-class"><pre class="language-text"><code>const parser = require('socket.io-msgpack-parser'); // or require('socket.io-json-parser')
+const socket = io({
+  parser: parser
+});
+
+// the server-side must have the same parser, to be able to communicate
+const io = require('socket.io')({
+  parser: parser
+});
+</code></pre></div><p>Manager</p> <p>new Manager(url[, options])</p> <p>url （字符串）</p> <p>options （对象）</p> <p>path （字符串） 命名路径，用来捕获服务器端的服务，默认为socket.io</p> <p>reconnection （布尔型）是否自动重新建立连接，默认为 true</p> <p>reconnectionAttempts （Number） 尝试重连的次数，默认为无限次</p> <p>reconnectionDelay （数值型） 重寻创建连接的延迟时长，默认为1000毫秒，受 randomizationFactor 正负加减的影响。比如默认的初始化延迟将在500至1500毫秒之间。</p> <p>reconnectionDelayMax （数值型）最大的重连等待时间，默认为5000毫秒。每一次尝试都会以两倍的增量增加重连的时间。</p> <p>randomizationFactor （数值型）默认为0.5，最小为0，最大为1.</p> <p>timeout （数值型） connect_error 和 connect_timeout 事件触发前的延迟时间，默认为20000毫秒。</p> <p>autoConnect （布尔型） 如果设置为 fasle ，你不得不手动调用 manage.open 函数。</p> <p>query （对象）：当连接到一个命名空间，额外的查询参数将被发送（随后可以到服务器端查找 socket.handshake.query 对象）。</p> <p>parser （解析器）：默认的为一个Parser实例</p> <p>Return Manager</p> <p>这一选项同样可通过<strong>engine.io-client</strong>初始化</p> <p>manager.reconnection([value])</p> <p>value （布尔型）</p> <p>Return Manager | Boolean</p> <p>设置 reconnection 选项，或者如果没有传递参数则直接返回它。</p> <p>manager.reconnectionAttempts([value])</p> <p>value （数值型）</p> <p>Return Manager | Number</p> <p>设置<strong>reconnectionAttempts</strong>选项，或者当没有参数时直接返回。</p> <hr> <p>manager.reconnectionDelay([value])</p> <ul><li>value （数值型）</li> <li>Return Manager | Number</li></ul> <p>设置<strong>reconnectionDelay</strong>选项，或者当没有参数时直接返回。</p> <hr> <p>manager.reconnectionDelayMax([value])</p> <ul><li>value （数值型）</li> <li>Return Manager | Number</li></ul> <p>设置<strong>reconnectionDelayMax</strong>选项，或者当没有参数时直接返回。</p> <hr> <p>manager.timeout([value])</p> <ul><li>value （数值型）</li> <li>Return Manager | Number</li></ul> <p>设置<strong>timeout</strong>选项，或者当没有参数时直接返回。</p> <hr> <p>manager.open([callback])</p> <ul><li>callback （Function）</li> <li>Return Manager</li></ul> <p>如果manager使用<strong>autoConnect</strong>初始化为<strong>false</strong>，尝试运行一个新的连接。</p> <p>这个回调函数参数时可选择的，并且将会在错误或者成功后被执行一次。</p> <hr> <p>manager.connect([callback])</p> <p>同**manager.open([callbakc])</p> <hr> <p>manager.socket(nsp, options)</p> <ul><li>nsp （字符串）</li> <li>options （对象）</li> <li>Return Socket</li></ul> <p>使用给定的命名空间创建一个新的Socket连接。</p> <p>Event: 'connect_error'</p> <ul><li>error （对象） 错误对象</li></ul> <p>触发连接错误事件。</p> <p>Event: 'connect_timeout'</p> <p>触发连接超时事件</p> <p>Event: 'reconnect'</p> <ul><li>attempt （数值型）尝试重新连接的次数</li></ul> <p>触发成功连接的事件</p> <p>Event: 'reconnect_attempt'</p> <p>触发尝试重新连接</p> <p>Event: 'reconnecting'</p> <ul><li>attempt （数值型） 重新连接尝试次数</li></ul> <p>触发成功重新连接事件</p> <p>Event: 'reconnect_error'</p> <ul><li>error （对象）错误对象</li></ul> <p>触发当在<strong>reconnectionAttempts</strong>次数内无法重新连接的错误事件</p> <p>Event: 'ping'</p> <p>当请求ping发送到服务器端时。</p> <p>Event: 'pong'</p> <ul><li>ms （数值型） 自ping至pong经过的毫秒数</li></ul> <p>当接受到服务器端的pong时触发。</p> <p>Sokect</p> <p>socket.id</p> <ul><li>（字符串）</li></ul> <p>标志socket session一个独一无二的符号，在客户端连接到服务器后被设置。</p> <p>const socket = io('http://localhost');</p> <p>console.log(socket.id); // undefined</p> <p>socket.on('connect', () =&gt; {
+console.log(socket.id); // 'G5p5...'
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+socket.open()
+
+* Returns Socket
+
+手动打开socket
+
+</code></pre></div><p>const socket = io({
+autoConnect: false
+});</p> <p>// ...
+socket.open();</p> <div class="language- extra-class"><pre class="language-text"><code>
+同样，也可以重新连接：
+
+</code></pre></div><p>socket.on('disconnect', () =&gt; {
+socket.open();
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+socket.connect()
+
+用法同**socket.open()**
+
+socket.send([...args][, ack])
+
+* args
+* ack （Function）
+* Returns Socket
+
+发送一个**message**事件，详细查看&lt;a target=&quot;_blank&quot; href=&quot;https://socket.io/docs/client-api/#socket-emit-eventname-args-ack&quot;&gt;socket.emit(eventName[, ...args][, ack]).&lt;/a&gt;
+
+socket.emit(eventName[, ...args][, ack])
+
+* eventName （字符串）
+* args
+* ack （Function）
+* Returns Socket
+
+通过提供的name时间名称向socket标志发送事件，任何其他的参数都可被包含，所有可被序列化的数据结构都支持，包括Buffer。
+
+</code></pre></div><p>socket.emit('hello', 'world');
+socket.emit('with-binary', 1, '2', { 3: '4', 5: new Buffer(6) });</p> <div class="language- extra-class"><pre class="language-text"><code>
+**ack**参数将用来响应服务器用来确认消息的应答。
+
+</code></pre></div><p>socket.emit('ferret', 'tobi', (data) =&gt; {
+console.log(data); // data will be 'woot'
+});</p> <p>// server:
+//  io.on('connection', (socket) =&gt; {
+//    socket.on('ferret', (name, fn) =&gt; {
+//      fn('woot');
+//    });
+//  });</p> <div class="language- extra-class"><pre class="language-text"><code>
+socket.on(eventName, callback)
+
+* eventName （字符串）
+* callback （Function）
+* Returns Socket
+
+注册一个新的响应服务器事件的事件处理器。
+
+</code></pre></div><p>socket.on('news', (data) =&gt; {
+console.log(data);
+});</p> <p>// with multiple arguments
+socket.on('news', (arg1, arg2, arg3, arg4) =&gt; {
+// ...
+});
+// with callback
+socket.on('news', (cb) =&gt; {
+cb(0);
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+这个socket实际上继承Emitter类的所有方法，比如**hashListener&quot;&quot;，**once**，**off**（用来移除一个事件监听器）。
+
+socket.commpress([value])
+
+* value (布尔型)
+* Returns Socket
+
+设置修改器，是否对向服务器传输的数据进行压缩。默认为**true**，即压缩。
+
+</code></pre></div><p>socket.compress(false).emit('an event', { some: 'data' });</p> <div class="language- extra-class"><pre class="language-text"><code>
+socket.close()
+
+* Returns Socket
+
+手动关闭客户端对服务器的链接
+
+socket.disconnect()
+
+用法同 **socket.close()**。
+
+Event: 'connect'
+
+连接成功后执行该函数。
+
+</code></pre></div><p>socket.on('connect', () =&gt; {
+// ...
+});</p> <p>// note: you should register event handlers outside of connect,
+// so they are not registered again on reconnection
+socket.on('myevent', () =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+Event: 'connect_error'
+
+* error （对象） 错误对象
+
+连接错误触发事件处理器。
+
+</code></pre></div><p>socket.on('connect_error', (error) =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+Event: 'disconnect'
+
+* reason （字符串） 服务器或客户端丢失连接的原因
+
+丢失连接时触发时间处理器
+
+</code></pre></div><p>socket.on('disconnect', (timeout) =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+Event: 'reconnect'
+
+* attempt （字符串） 重连次数
+
+成功的重连时触发时间处理器
+
+</code></pre></div><p>socket.on('reconnect', (timeout) =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+Event: 'reconnect_attempt'
+
+* attempt （字符串） 重连次数
+
+成功的重连时触发时间处理器
+
+</code></pre></div><p>socket.on('reconnect_attempt', (timeout) =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+Event: 'reconnecting'
+
+* attempt （字符串） 尝试重连次数
+
+尝试重连时触发时间处理器
+
+</code></pre></div><p>socket.on('reconnecting', (timeout) =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+Event: 'reconnect_error'
+
+* attempt （字符串） 错误对象
+
+重连错误时触发时间处理器
+
+</code></pre></div><p>socket.on('reconnect_error', (timeout) =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+Event: 'reconnect_failed'
+
+</code></pre></div><p>socket.on('reconnect_failed', (timeout) =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+Event: 'ping'
+
+</code></pre></div><p>socket.on('ping', (timeout) =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+Event: 'pong'
+
+* ms （数值型） 自ping到pong经历的毫秒数
+
+</code></pre></div><p>socket.on('pong', (timeout) =&gt; {
+// ...
+});</p> <div class="language- extra-class"><pre class="language-text"><code>
+继续阅读：[[译] socket.io官方文档·上篇](/article/socket-io-official-document-translate-part-one/)</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.fb1a0a14.js" defer></script><script src="/assets/js/2.91a50989.js" defer></script><script src="/assets/js/11.aff1aaae.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图层概念</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+      }
+      svg {
+        display: block;
+      }
+      #app {
+        height: 100%;
+        background-color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="../lib/d3.v7.min.js"></script>
+    <script src="../lib/airglass/rsm-1.0.0.js"></script>
+    <script>
+      fetch("../static/安国站.svg")
+        .then((res) => res.text())
+        .then(async (svgstr) => {
+          const station = rsm.initStationFromSVG(
+            svgstr,
+            document.querySelector("#app")
+          );
+
+          station.layers.$element
+            .select("#dangerous_zone")
+            .append("circle")
+            .attr("cx", 1200)
+            .attr("cy", 350)
+            .attr("r", 100)
+            .attr("fill", "red");
+
+          station.layers.$element
+            .select("#working_area")
+            .append("circle")
+            .attr("cx", 1380)
+            .attr("cy", 500)
+            .attr("r", 100)
+            .attr("fill", "yellow");
+
+          station.layers.$element
+            .select("#working_area")
+            .append("circle")
+            .attr("cx", 1480)
+            .attr("cy", 500)
+            .attr("r", 100)
+            .attr("fill", "black");
+        });
+    </script>
+  </body>
+</html>

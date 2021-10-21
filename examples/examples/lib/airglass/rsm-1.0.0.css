@@ -1,0 +1,41 @@
+.__dangerous_zone_ani {
+  -webkit-animation-name: __dangerous_zone_ani;
+  animation-name: __dangerous_zone_ani;
+  -webkit-animation-duration: 1000ms;
+  animation-duration: 1000ms;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+@-webkit-keyframes __dangerous_zone_ani {
+  0% {
+    stroke-dashoffset: 0;
+    fill: hsla(60deg, 50%, 50%, 0.2);
+  }
+  50% {
+    stroke-dashoffset: -30;
+    fill: hsla(60deg, 50%, 50%, 0);
+  }
+  100% {
+    stroke-dashoffset: -60;
+    fill: hsla(60deg, 50%, 50%, 0.2);
+  }
+}
+@keyframes __dangerous_zone_ani {
+  0% {
+    stroke-dashoffset: 0;
+    fill: hsla(60deg, 50%, 50%, 0.2);
+  }
+  50% {
+    stroke-dashoffset: -30;
+    fill: hsla(60deg, 50%, 50%, 0);
+  }
+  100% {
+    stroke-dashoffset: -60;
+    fill: hsla(60deg, 50%, 50%, 0.2);
+  }
+}
+
+/*# sourceMappingURL=rsm-1.0.0.css.map*/

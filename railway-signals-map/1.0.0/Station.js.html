@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Station.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CodeTable.html">CodeTable</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="DangerousZone.html">DangerousZone</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Layer.html">Layer</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Layers.html">Layers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Layers.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Layers.html#get">get</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="OriginalStationLayer.html">OriginalStationLayer</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Station.html">Station</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Station.html#redrawDangerousZone">redrawDangerousZone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Station.html#redrawTrackSignalColor">redrawTrackSignalColor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="WorkingArea.html">WorkingArea</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#generateUID">generateUID</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#initStationFromSVG">initStationFromSVG</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">Station.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import Layer from "./Layer";
+import Layers from "./Layers";
+
+/**
+ * 代表整个车站
+ * @class
+ */
+class Station {
+  /**
+   * 管理所有层
+   */
+  layers;
+
+  /**
+   * 存储所有道岔
+   */
+  DAO_CHAR = [];
+
+  /**
+   * 构造一个车站实例
+   * @construct
+   * @param {d3.selection} $svg - svg元素
+   */
+  constructor($svg) {
+    this.layers = new Layers({
+      $: $svg.append("g"),
+    });
+
+    /**
+     * 绑定缩放平移交互
+     */
+    $svg.call(
+      d3
+        .zoom()
+        .scaleExtent([0.5, 20])
+        .on("zoom", ({ transform }) => {
+          this.layers.$element.attr("transform", transform);
+        })
+    );
+
+    /**
+     * 按照顺序创建
+     */
+
+    /**
+     * 危险区域层
+     */
+    this.layers.add(
+      new Layer({
+        $: this.layers.$element.append("g"),
+        id: "dangerous_zone",
+      })
+    );
+
+    /**
+     * 原始站场图层
+     */
+    this.layers.add(
+      new Layer({
+        $: $svg.select("g#all"),
+        id: "station_original_map",
+      })
+    );
+
+    /**
+     * 工作区域层
+     */
+    this.layers.add(
+      new Layer({
+        $: this.layers.$element.append("g"),
+        id: "working_area",
+      })
+    );
+
+    /**
+     * 轨道信号颜色层
+     */
+    this.layers.add(
+      new Layer({
+        $: this.layers.$element.append("g"),
+        id: "track_signal_color",
+      })
+    );
+    /**
+     * 信号机信号颜色层
+     */
+    this.layers.add(
+      new Layer({
+        $: this.layers.$element.append("g"),
+        id: "light_signal_color",
+      })
+    );
+  }
+  /**
+   * 重新绘制危险区域
+   * @param {*} data
+   */
+  redrawDangerousZone(data) {
+    const $paper = this.layers.get("dangerous_zone");
+    /**
+     * 清空画布
+     */
+    $paper.selectAll("polygon").remove();
+
+    /**
+     * 将每一块危险区域的数据转换成一个个 polygon 元素
+     */
+    const $polygon = $paper
+      .selectAll("polygon")
+      .data(data)
+      .enter()
+      .append("polygon")
+      .attr("class", "__dangerous_zone_ani")
+      .attr("points", function (d) {
+        return d.map((point) => `${point.x},${point.y}`).join(" ");
+      })
+      .attr("stroke", "yellow")
+      .attr("stroke-width", "3")
+      .attr("stroke-dasharray", "15,15")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-linejoin", "round");
+  }
+  /**
+   * 重绘轨道信号颜色
+   */
+  redrawTrackSignalColor(DATA) {
+    /**
+     * 清空道岔
+     */
+    const DAO_CHAR = [];
+
+    const $originalMapPaper = this.layers.get("station_original_map");
+    const $paper = this.layers.get("track_signal_color");
+
+    $paper.selectAll("line").remove();
+    $paper.selectAll("g").remove();
+    /**
+     * 获取所有符合条件的 g 元素
+     * 条件1：class 属性值不为空
+     * 条件2：class 属性值不为 "qj"
+     */
+    const $groupsAvailable = $originalMapPaper
+      .selectAll("g")
+      .filter(function () {
+        const className = d3.select(this).attr("class");
+        return className;
+      });
+    /**
+     * 对满足条件的 group 元素进行操作
+     */
+    $groupsAvailable.each(function () {
+      const $g = d3.select(this);
+      const className = $g.attr("class");
+      const id = d3.select(this).attr("id");
+
+      /**
+       * 将 id 使用逗号分割并去除第一个元素
+       * 凡是以 D 或 F 结尾的 id 都能分割成包含至少一个元素的数组
+       */
+      const id_DotSplitArray = id.split(",");
+      id_DotSplitArray.shift();
+
+      /**
+       * 存储最终颜色信号
+       */
+      let colorSignal;
+
+      /**
+       * 存储所有颜色信号规则
+       */
+      let colorSignalRules = DATA.map((signal) => {
+        /**
+         * 将信号值用下划线分割成数组
+         * 第一个元素代表：轨道名称
+         * 第二个元素代表：颜色信息
+         */
+        const [_trackId, _colorId] = signal.split("_");
+        if (_trackId === className &amp;&amp; _colorId) {
+          if (
+            !colorSignal ||
+            ["R", "G", "Y", "GG", "YY", "GY"].includes(_colorId)
+          ) {
+            colorSignal = _colorId;
+          }
+          return _colorId;
+        }
+      }).filter((d) => d);
+
+      if (
+        colorSignalRules.length &amp;&amp;
+        colorSignalRules.includes("Y") &amp;&amp;
+        colorSignalRules.includes("G")
+      ) {
+        colorSignal = "GY";
+      }
+
+      const id_DotSplitArray_contained_in_DATA = id_DotSplitArray.filter(
+        (value) => {
+          const isContain = DATA.includes(value);
+          DAO_CHAR.push(value);
+          return isContain;
+        }
+      );
+
+      if (id.endsWith("D") || id.endsWith("F")) {
+        colorSignal = undefined;
+      }
+
+      if (!colorSignal) return;
+
+      /**
+       * 根据颜色信号改变 g 元素样式
+       * 首先克隆 g 元素节点
+       */
+      const $gClone = $g.clone(true);
+
+      /**
+       * 将 g 元素的克隆节点插入到轨道层中
+       */
+      $paper.node().appendChild($gClone.node());
+
+      if (className === "TG") {
+        $gClone.selectAll("line").attr("stroke", "rgb(85, 120, 182)");
+        return;
+      }
+
+      /**
+       * 轨道侧轨不变色
+       */
+      if ($gClone.classed("road_side")) {
+        return;
+      }
+      switch (colorSignal) {
+        case "W":
+          $gClone
+            .selectAll("line")
+            .attr("stroke", "white")
+            .attr("stroke-opacity", 1);
+          break;
+        case "R":
+          $gClone
+            .selectAll("line")
+            .attr("stroke", "red")
+            .attr("stroke-opacity", 1);
+          break;
+        case "Y":
+          $gClone
+            .selectAll("line")
+            .attr("stroke", "yellow")
+            .attr("stroke-opacity", 1);
+          break;
+      }
+    });
+    /**
+     * 获取所有符合条件的 line 元素
+     * 条件1：class 属性值不为空
+     * 条件2：class 属性值不为 "qj"
+     */
+    const $linesAvailable = $originalMapPaper
+      .selectAll("line")
+      .filter(function () {
+        const className = d3.select(this).attr("class");
+        return className &amp;&amp; className !== "qj";
+      });
+    /**
+     * 对满足条件的 line 元素进行操作
+     */
+    $linesAvailable.each(function () {
+      const $line = d3.select(this);
+      const className = $line.attr("class");
+      const id = d3.select(this).attr("id");
+
+      /**
+       * id 结尾既不是 "D" 也不是 "F"
+       */
+      const isNotEndsWithDAndF = !id.endsWith("D") &amp;&amp; !id.endsWith("F");
+
+      /**
+       * 将 id 使用逗号分割并去除第一个元素
+       * 凡是以 D 或 F 结尾的 id 都能分割成包含至少一个元素的数组
+       */
+      const id_DotSplitArray = id.split(",");
+      id_DotSplitArray.shift();
+
+      /**
+       * 存储最终颜色信号
+       */
+      let colorSignal;
+
+      /**
+       * 存储所有颜色信号规则
+       */
+      let colorSignalRules = DATA.map((signal) => {
+        /**
+         * 将信号值用下划线分割成数组
+         * 第一个元素代表：轨道名称
+         * 第二个元素代表：颜色信息
+         */
+        const [_trackId, _colorId] = signal.split("_");
+        if (_trackId === className &amp;&amp; _colorId) {
+          if (
+            !colorSignal ||
+            ["R", "G", "Y", "GG", "YY", "GY"].includes(_colorId)
+          ) {
+            colorSignal = _colorId;
+          }
+          return _colorId;
+        }
+      }).filter((d) => d);
+
+      if (
+        colorSignalRules.length &amp;&amp;
+        colorSignalRules.includes("Y") &amp;&amp;
+        colorSignalRules.includes("G")
+      ) {
+        colorSignal = "GY";
+      }
+
+      /**
+       * 猜想：
+       */
+      const id_DotSplitArray_contained_in_DATA = id_DotSplitArray.filter(
+        (value) => {
+          const isContain = DATA.includes(value);
+          DAO_CHAR.push(value);
+          return isContain;
+        }
+      );
+
+      if (!colorSignal) return;
+
+      /**
+       * 根据颜色信号改变 line 元素样式
+       * 首先克隆 line 元素节点
+       */
+      const $lineClone = $line.clone();
+
+      /**
+       * 将 line 元素的克隆节点插入到轨道层中
+       */
+      $paper.node().appendChild($lineClone.node());
+
+      if (className === "TG") {
+        $lineClone.attr("stroke", "rgb(85, 120, 182)");
+        return;
+      }
+
+      /**
+       * 轨道侧轨不变色
+       */
+      if ($lineClone.classed("road_side")) {
+        return;
+      }
+      switch (colorSignal) {
+        case "W":
+          $lineClone.attr("stroke", "white").attr("stroke-opacity", 1);
+          break;
+        case "R":
+          $lineClone.attr("stroke", "red").attr("stroke-opacity", 1);
+          break;
+        case "Y":
+          $lineClone.attr("stroke", "yellow").attr("stroke-opacity", 1);
+          break;
+      }
+    });
+
+    this.DAO_CHAR = DAO_CHAR;
+  }
+}
+
+export default Station;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Thu Jul 07 2022 08:33:10 GMT+0800 (GMT+08:00) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

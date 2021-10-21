@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>甘特图在线编辑 ｜ 帅华君的独立作品</title>
+    <link rel="stylesheet" href="static/sketch.css" />
+    <style>
+      body {
+        color: #333;
+      }
+      .plane-list {
+        text-align: center;
+        margin: 20px 20px;
+      }
+      .plane-list a {
+        box-sizing: border-box;
+        font-family: "san-serif";
+        display: inline-block;
+        text-decoration: none;
+        background-color: #f0f0f0;
+        color: #333;
+        line-height: 1;
+        padding: 10px;
+        border-radius: 5px;
+        margin: 5px 0px;
+        transition: all 300ms;
+      }
+      .plane-list a.month {
+        border: 1px solid #aaa;
+      }
+      .plane-list a.year {
+        border: 1px solid #555;
+      }
+      .plane-list a.active,
+      .plane-list a:hover {
+        background-color: #b1f0b4;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="plane-list">
+      <div>
+        <a class="year" href="?u=2023">2023年计划</a>
+      </div>
+      <div>
+        <a class="year" href="?u=2022">2022年计划</a>
+        <a class="month" href="?u=2022-7">2022年7月计划</a>
+        <a class="day" href="?u=2022-7-7">2022年7月7日计划</a>
+        <a class="day" href="?u=2022-7-6">2022年7月6日计划</a>
+        <a class="day" href="?u=2022-7-5">2022年7月5日计划</a>
+        <a class="day" href="?u=2022-7-4">2022年7月4日计划</a>
+        <a class="day" href="?u=2022-7-3">2022年7月3日计划</a>
+        <a class="month" href="?u=2022-6">2022年6月计划</a>
+      </div>
+    </div>
+    <div
+      class="airglass-gantt-app"
+      id="app"
+      style="background-color: #fff; position: relative; margin: 0 auto"
+    ></div>
+    <script src="lib/grender-1.0.0.min.js"></script>
+    <script src="static/sketch.js"></script>
+    <script>
+      const query = new URLSearchParams(window.location.search);
+      const id = query.get("u");
+
+      document.querySelector(`a[href="?u=${id}"]`).classList.add("active");
+
+      if (id) {
+        fetch(`./data/${id}.json?v=${new Date().getTime()}`)
+          .then((res) => res.json())
+          .then((project) => {
+            document.title = `${project.title || id} | ${document.title}`;
+            const gantt = air.Gantt({
+              el: document.querySelector("#app"),
+              onPrint: function(img) {},
+              onSave: function(json) {
+                console.log(json);
+              },
+              project,
+            });
+          });
+      }
+    </script>
+  </body>
+</html>

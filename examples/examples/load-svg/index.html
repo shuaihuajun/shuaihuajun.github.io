@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>加载任意原始站场SVG</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+      }
+      svg {
+        display: block;
+      }
+      #app {
+        height: 100%;
+        background-color: #333;
+      }
+      .tips {
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: #fff;
+      }
+      .tips a {
+        color: #fff;
+      }
+    </style>
+    <script>
+      function loadSVG(url) {
+        fetch(url)
+          .then((res) => res.text())
+          .then((svgstr) => {
+            updateStation(svgstr);
+          });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div class="tips">
+      <input type="file" name="" id="inputFileEl" />
+      <div>
+        <a
+          class="load-station-btn"
+          data-url="../static/安国站.svg"
+          href="javascript:;"
+          >安国站.svg</a
+        >
+      </div>
+      <div>
+        <a
+          class="load-station-btn"
+          data-url="../static/良村站.svg"
+          href="javascript:;"
+          >良村站.svg</a
+        >
+      </div>
+      <div>
+        <a
+          class="load-station-btn"
+          data-url="../static/朔黄导航.svg"
+          href="javascript:;"
+          >朔黄导航.svg</a
+        >
+      </div>
+    </div>
+    <script src="../lib/d3.v7.min.js"></script>
+    <script src="../lib/airglass/rsm-1.0.0.js"></script>
+    <script>
+      document
+        .querySelector("#inputFileEl")
+        .addEventListener("change", function() {
+          this.files[0].text().then((svgstr) => {
+            const station = rsm.initStationFromSVG(
+              svgstr,
+              document.querySelector("#app")
+            );
+          });
+        });
+
+      document.querySelectorAll(".load-station-btn").forEach((aTag) => {
+        aTag.addEventListener("click", function() {
+          const aTag = this;
+          const svgURL = aTag.dataset.url;
+          fetch(svgURL)
+            .then((res) => res.text())
+            .then((svgstr) => {
+              const station = rsm.initStationFromSVG(
+                svgstr,
+                document.querySelector("#app")
+              );
+              console.log(station);
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+{
+  "title": "2022年7月5日",
+  "unit-width": 20,
+  "startTime": "2022/07/05 08:00:00",
+  "endTime": "2022/07/05 20:00:00",
+  "planeType": "day",
+  "height": 80,
+  "schedule": [
+    {
+      "title": "列车接近预警系统Web端开发手册",
+      "queue": [
+        {
+          "title": "为 JS 类库编写开发手册",
+          "startTime": "2022/7/5 08:30:00",
+          "endTime": "2022/7/5 17:30:00"
+        }
+      ]
+    },
+    {
+      "title": "列车接近预警Web端功能示例页",
+      "queue": []
+    },
+    {
+      "title": "列车接近预警系统Web端JS类库",
+      "queue": [
+        {
+          "title": "1. initStationFromSVG 工具函数 /2. Station 类 /3. DangerousZone 类",
+          "startTime": "2022/7/5 08:30:00",
+          "endTime": "2022/7/5 17:30:00"
+        }
+      ]
+    },
+    {
+      "title": "临时任务",
+      "queue": []
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>列车接近预警系统 Web 端各功能独立演示页面</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background-color: #669ecc;
+        color: #fff;
+        background-image: url(./static/railway-tracks-g8006b7209_1920.jpg);
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;
+      }
+      main {
+        max-width: 1280px;
+        margin: 50px auto 100px;
+        padding: 0 20px;
+      }
+      .page-list {
+        max-width: 100%;
+        -moz-column-count: 4;
+        column-count: 4;
+        -moz-column-gap: 10px;
+        column-gap: 10px;
+        margin-top: 60px;
+      }
+      .page-list a.card {
+        break-inside: avoid;
+        box-sizing: border-box;
+        padding-bottom: 10px;
+        display: block;
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 10px;
+        transition: all 270ms;
+        margin-bottom: 10px;
+        background-color: #fff;
+        cursor: default;
+      }
+      .page-list a.card[href]:hover {
+        box-shadow: 0 0 10px 0px hsla(0, 0%, 0%, 0.1);
+      }
+      .page-list a.card[href] {
+        cursor: pointer;
+      }
+      .page-list img {
+        max-width: 100%;
+        display: block;
+        border-radius: 10px;
+      }
+      .page-list h2 {
+        max-width: 100%;
+        line-height: 1;
+        margin: 10px 0;
+        font-size: 18px;
+        color: #333;
+      }
+      .page-list p {
+        max-width: 100%;
+        line-height: 1.5;
+        margin: 0 0 10px;
+        font-size: 14px;
+        color: #777;
+      }
+      h1 {
+        text-align: center;
+        margin: 20px 0;
+        line-height: 1;
+        font-size: 2em;
+        text-shadow: 2px 3px 1px #4c4c4c;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>列车接近预警系统 Web 端</h1>
+      <h1>各功能独立演示页面</h1>
+      <div class="page-list">
+        <a class="card" target="_blank" href="./examples/light-signal-color/index.html">
+          <h2>信号机（红绿黄蓝月白）色可视化</h2>
+          <img src="./examples/light-signal-color/demo.gif" alt="" />
+        </a>
+        <a
+          class="card"
+          target="_blank"
+          href="./examples/track-signal-color/index.html"
+        >
+          <h2>轨道（红白）颜色可视化</h2>
+          <p>
+            页面模拟了列车驶过车站时战场图上轨道颜色的变化情况
+          </p>
+          <img src="./examples/track-signal-color/demo.gif" alt="" />
+        </a>
+        <a
+          class="card"
+          target="_blank"
+          href="./examples/dangerous-zone/index.html"
+        >
+          <h2>危险警示区域可视化</h2>
+          <p>
+            危险区域层置于原始站场图图层之下
+          </p>
+          <img src="./examples/dangerous-zone/demo.gif" alt="" />
+        </a>
+        <a class="card" target="_blank" href="./examples/load-svg/index.html">
+          <h2>加载任意原始站场SVG</h2>
+          <p>加载任意 SVG 并实现缩放、拖拽交互</p>
+          <img src="./examples/load-svg/demo.gif" alt="" />
+        </a>
+        <a class="card" target="_blank" href="./examples/layers/index.html">
+          <h2>图层概念</h2>
+          <p>
+            不同类型放置在不同层中, 类似 PhotoShop 图层的概念
+          </p>
+          <img src="./examples/layers/demo.gif" alt="" />
+        </a>
+        <a class="card">
+          <h2>列车导航</h2>
+          <img src="./examples/static/building.jpg" alt="" />
+        </a>
+        <a class="card">
+          <h2>工作区域层</h2>
+          <img src="./examples/static/building.jpg" alt="" />
+        </a>
+        <a class="card">
+          <h2>肩章手台实时位置可视化</h2>
+          <img src="./examples/static/building.jpg" alt="" />
+        </a>
+        <a class="card">
+          <h2>机头实时位置可视化</h2>
+          <img src="./examples/static/building.jpg" alt="" />
+        </a>
+        <a class="card">
+          <h2>机具实时位置可视化</h2>
+          <img src="./examples/static/building.jpg" alt="" />
+        </a>
+      </div>
+    </main>
+  </body>
+</html>

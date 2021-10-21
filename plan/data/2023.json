@@ -1,0 +1,18 @@
+{
+  "title": "2023年计划",
+  "unit-width": "30",
+  "startTime": "2023/01/01 00:00:00",
+  "endTime": "2024/01/01 00:00:00",
+  "planeType": "year",
+  "height": "40",
+  "schedule": [
+    {
+      "title": "一个教程",
+      "queue": []
+    },
+    {
+      "title": "读书计划",
+      "queue": []
+    }
+  ]
+}
