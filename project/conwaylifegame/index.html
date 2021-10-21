@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Conway's Game of Life. Based on JavaScript Canvas implementation" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>康威生命游戏 | 作品集 - 陈帅华的官方网站</title>
+  <script type="module" crossorigin src="./assets/index.7a6d8ef8.js"></script>
+  <link rel="stylesheet" href="./assets/index.62d08cb0.css">
+</head>
+
+<body>
+  <div id="header">
+    <h2>康威生命游戏(B3S23)</h2>
+    <a href="https://catagolue.hatsya.com/rules/b3s23life" target="_blank">参考网站：catagolue.hatsya.com</a>
+  </div>
+  <div class="sketch">
+    <div>
+      <canvas id="myCanvas"></canvas>
+      <div id="controller"></div>
+    </div>
+  </div>
+  <div id="presetting"></div>
+
+  
+  <script>
+    const width = 900;
+    const height = 600;
+    const scale = 2;
+
+    Module = {};
+    Module.onRuntimeInitialized = function () {
+      var canvas = document.getElementById('myCanvas');
+      var ctx = canvas.getContext("2d");
+      canvas.width = width;
+      canvas.height = height;
+      Module._init_env(width / scale, height / scale, scale);
+
+      canvas.addEventListener("click", onMouseClick, true);
+
+      window.requestAnimationFrame(update);
+    }
+
+    function update() {
+      var buf_addr = Module._step();
+      var u8o = new Uint8ClampedArray(Module.HEAPU8.subarray(buf_addr,
+        buf_addr + width * height * 4));
+      var imgData = new ImageData(u8o, width, height);
+
+      var canvas = document.getElementById('myCanvas');
+      var ctx = canvas.getContext('2d');
+      ctx.putImageData(imgData, 0, 0);
+      window.requestAnimationFrame(update);
+    }
+
+    function getPointOnCanvas(canvas, x, y) {
+      var bbox = canvas.getBoundingClientRect();
+      return {
+        x: x - bbox.left * (canvas.width / bbox.width),
+        y: y - bbox.top * (canvas.height / bbox.height)
+      };
+    }
+
+    function onMouseClick(event) {
+      var canvas = document.getElementById('myCanvas');
+      var loc = getPointOnCanvas(canvas, event.clientX, event.clientY);
+      if (window.applyData && window.applyData.length) {
+        let currentX = loc.x;
+        let currentY = loc.y;
+        applyData.forEach(d => {
+          switch (d) {
+            case 0:
+              Module._changeState(currentX, currentY, false);
+              currentX += scale;
+              break;
+            case 1:
+              Module._changeState(currentX, currentY, true);
+              currentX += scale;
+              break;
+            case -1:
+              currentX = loc.x;
+              currentY += scale;
+              break;
+          }
+        })
+      } else {
+        Module._on_mouse_click(loc.x, loc.y);
+      }
+    }
+  </script>
+  <script src="./life.js"></script>
+</body>
+
+</html>

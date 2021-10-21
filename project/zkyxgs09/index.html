@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>点位分布世界地图 | 作品集 - 陈帅华的官方网站</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: hsla(0, 0%, 0%, 1);
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="Flag.js"></script>
+  <script src="EarthLand.js"></script>
+  <script src="Land.js"></script>
+  <script type="text/javascript">
+    function getTopoJson(url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.responseType = 'json';
+      xhr.onreadystatechange = function () {
+        if (xhr.status == 200 && xhr.readyState == 4) {
+          var _data = xhr.response;
+          callback(_data);
+        }
+      };
+      xhr.open('GET', url, true);
+      xhr.send(null);
+    }
+
+    var flagManager;
+    var earthLand = new EarthLand({});
+
+    function init(data) {
+
+      flagManager = new FlagManager({
+        onClickFlag: function (flag) {
+          var _w = document.querySelector('#pop_wrap');
+          if (_w) _w.remove();
+
+          var wrap = document.createElement('div');
+          wrap.setAttribute('id', 'pop_wrap');
+          wrap.style.cssText = 'position:absolute; z-index:10; top:0; left:0; width:100%; height:100%; background-color:hsla(0, 0%, 0%, .4)';
+
+          var ele = document.createElement('div');
+          ele.setAttribute('id', 'pop');
+          ele.style.cssText = 'position:absolute; z-index:10; top:50%; left:50%; width:420px; height:auto; background-color:hsla(0, 0%, 100%, .9); margin-left: -210px; box-sizing:border-box; padding:26px; color:hsla(0, 0%, 30%, 1); word-break:break-all; line-height: 28px; font-size: 16px; margin-top: -90px; cursor:pointer;';
+          ele.innerHTML = 'angle : ' + flag.angle + '<br/>';
+          ele.innerHTML += 'x : ' + flag.x + '<br/>';
+          ele.innerHTML += 'y : ' + flag.y + '<br/>';
+          ele.innerHTML += 'color : ' + flag.color + '<br/>';
+          ele.innerHTML += 'imgUrl : ' + flag.imgUrl + '<br/>';
+          wrap.appendChild(ele);
+
+          ele.addEventListener('click', function () {
+            wrap.remove();
+          }, false);
+
+          document.body.appendChild(wrap)
+        }
+      });
+
+      // init
+      var photos = ['./cat.jpg', './dog.jpg', './sheep.jpg'];
+      for (var i = 0; i < 30; i++) {
+        var flag = new Flag({
+          angle: Math.round(360 * Math.random()),
+          length: Math.round(130 * Math.random()),
+          color: 'hsla(' + Math.round(Math.random() * 360) + ', 50%, 50%, 1)',
+          imgUrl: photos[Math.floor(Math.random() * 3)],
+        });
+        flagManager.addFlag(flag);
+      }
+
+
+      for (var i = 0; i < data.geometries.length; i++) {
+        var pathData = data.geometries[i].coordinates[0];
+        var land = new Land(pathData);
+        earthLand.addLand(land);
+      }
+
+      earthLand.onRender = function (center, scale) {
+        flagManager.render(center, scale);
+      }
+      earthLand.render();
+    }
+
+    getTopoJson('./ne_110m_land.json', init);
+  </script>
+</body>
+
+</html>

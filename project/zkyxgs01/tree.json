@@ -1,0 +1,274 @@
+{
+  "level": 0,
+  "name": "应用系统",
+  "url": "/application/",
+  "children": [
+    {
+      "level": 1,
+      "name": "系统设计",
+      "name_en": "SYSTEM DESIGN",
+      "url": "/application/design/",
+      "children": [
+        {
+          "level": 2,
+          "name": "网络展示系统设计",
+          "name_en":"NETWORK SHOW SYSTEM DESIGN",
+          "word": "展",
+          "size": 10000,
+          "url": "/static/application/show/index.html",
+          "img": "NETWORK-SHOW-SYSTEM-DESIGN.jpg"
+        },
+        {
+          "level": 2,
+          "name": "网络靶场系统设计",
+          "name_en":"NETWORK SHOT SYSTEM DESIGN",
+          "word": "靶",
+          "size": 10000,
+          "url": "/static/application/web/index.html",
+          "img": "NETWORK-SHOT-SYSTEM-DESIGN.jpg"
+        },
+        {
+          "level": 2,
+          "name": "课程培训系统设计",
+          "name_en":"COURSE SYSTEM DESIGN",
+          "word": "课",
+          "size": 10000,
+          "url": "/static/application/course/index.html",
+          "img": "COURSE-SYSTEM-DESIGN.jpg"
+        },
+        {
+          "level": 2,
+          "name": "比武演练系统设计",
+          "name_en":"FIGHT SYSTEM DESIGN",
+          "word": "武",
+          "size": 10000,
+          "url": "/static/application/game/index.html",
+          "img": "FIGHT-SYSTEM-DESIGN.jpg"
+        },
+        {
+          "level": 2,
+          "name": "数据分析系统设计",
+          "name_en":"DATA ANALYSIS SYSTEM DESIGN",
+          "word": "析",
+          "size": 10000,
+          "url": "/static/application/analysis/index.html",
+          "img": "DATA-ANALYSIS-SYSTEM-DESIGN.jpg"
+        },
+        {
+          "level": 2,
+          "name": "武器实体系统设计",
+          "name_en":"WEAPON SYSTEM DESIGN",
+          "word": "器",
+          "size": 10000,
+          "url": "/static/application/equipment/index.html",
+          "img": "WEAPON-SYSTEM-DESIGN.jpg"
+        },
+        {
+          "level": 2,
+          "name": "网络拓扑系统设计",
+          "name_en":"NETWORK-TOPOLOGY-SYSTEM-DESIGN",
+          "word": "拓",
+          "size": 10000,
+          "url": "/static/application/topology/index.html",
+          "img": "NETWORK-TOPOLOGY-SYSTEM-DESIGN.jpg"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "系统实例",
+      "name_en": "SYSTEM EXAMPLE",
+      "url": "/application/demo/",
+      "children": [
+        {
+          "level": 2,
+          "name": "实例展示",
+          "name_en":"EXAMPLE SHOW",
+          "word": "例",
+          "size": 10000,
+          "url": "/static/app/src/index.html",
+          "img": "EXAMPLE-SHOW.jpg"
+        },
+        {
+          "level": 2,
+          "name": "效果展示",
+          "name_en":"EFFECT SHOW",
+          "word": "效",
+          "size": 10000,
+          "url": "/static/application/visual/index.html",
+          "img": "EFFECT-SHOW.jpg"
+        },
+        {
+          "level": 2,
+          "name": "图像展示",
+          "name_en":"PICTURE SHOW",
+          "word": "图",
+          "size": 10000,
+          "url": "/static/application/visual/capture.html",
+          "img": "PICTURE-SHOW.jpg"
+        },
+        {
+          "level": 2,
+          "name": "视频展示",
+          "name_en":"VIDEO SHOW",
+          "word": "视",
+          "size": 10000,
+          "url": "/static/application/visual/video.html",
+          "img": "VIDEO-SHOW.jpg"
+        }
+      ]
+    },
+    {
+      "level": 1,
+      "name": "系统架构",
+      "name_en": "SYSTEM ARCHITECTURE",
+      "url": "/application/architecture/",
+      "children": [
+        {
+          "level": 2,
+          "name": "展示系统",
+          "name_en":"SHOW SYSTEM",
+          "word": "展",
+          "size": 10000,
+          "url": "/show/",
+          "img": "SHOW-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "靶场系统",
+          "name_en":"SHOOTING RANGE SYSTEM",
+          "word": "靶",
+          "size": 10000,
+          "url": "/web/",
+          "img": "SHOOTING-RANGE-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "竞赛系统",
+          "name_en":"FIGHT SYSTEM",
+          "word": "竞",
+          "size": 10000,
+          "url": "/game/",
+          "img": "FIGHT-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "培训系统",
+          "name_en":"TRAINING COURSE SYSTEM",
+          "word": "课",
+          "size": 10000,
+          "url": "/course/",
+          "img": "TRAINING-COURSE-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "管理系统",
+          "name_en":"ADMINISTRATION SYSTEM",
+          "word": "管",
+          "size": 10000,
+          "url": "/system/",
+          "img": "ADMINISTRATION-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "拓扑系统",
+          "name_en":"TOPOLOGY SYSTEM",
+          "word": "拓",
+          "size": 10000,
+          "url": "/topology/",
+          "img": "TOPOLOGY-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "应用系统",
+          "name_en":"APPLICATION SYSTEM",
+          "word": "应",
+          "size": 10000,
+          "url": "/application/",
+          "img": "APPLICATION-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "消息系统",
+          "name_en":"ACTIVE SYSTEM",
+          "word": "息",
+          "size": 10000,
+          "url": "/active/",
+          "img": "ACTIVE-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "远程系统",
+          "name_en":"TRAINING COURSE SYSTEM",
+          "word": "远",
+          "size": 10000,
+          "url": "/remote/",
+          "img": "REMOTE-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "场景系统",
+          "name_en":"SCENE SYSTEM",
+          "word": "场",
+          "size": 10000,
+          "url": "/rebuild/",
+          "img": "SCENE-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "授权系统",
+          "name_en":"AUTHORIZE SYSTEM",
+          "word": "权",
+          "size": 10000,
+          "url": "/auth/",
+          "img": "AUTHORIZE-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "分析系统",
+          "name_en":"ANALYSIS SYSTEM",
+          "word": "析",
+          "size": 10000,
+          "url": "/analysis/",
+          "img": "ANALYSIS-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "武器系统",
+          "name_en":"ARMS SYSTEM",
+          "word": "器",
+          "size": 10000,
+          "url": "/equipment/",
+          "img": "ARMS-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "实例系统",
+          "name_en":"INSTANCE SYSTEM",
+          "word": "例",
+          "size": 10000,
+          "url": "/demo/",
+          "img": "INSTANCE-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "演示系统",
+          "name_en":"DEMO SYSTEM",
+          "word": "演",
+          "size": 10000,
+          "url": "/x/",
+          "img": "DEMO-SYSTEM.jpg"
+        },
+        {
+          "level": 2,
+          "name": "认证系统",
+          "name_en":"ATTESTATION SYSTEM",
+          "word": "证",
+          "size": 10000,
+          "url": "/license/",
+          "img": "ATTESTATION-SYSTEM.jpg"
+        }
+      ]
+    }
+  ]
+}

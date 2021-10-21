@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>星际主题传送门 | 作品集 - 陈帅华的官方网站</title>
+  <link rel="stylesheet" type="text/css" href="./res/css/nav-page.css">
+</head>
+
+<body>
+  <svg id="navigate_nav_page_menu">
+    <g transform="translate(5,5)">
+      <line x1="0" x2="30" y1="0" y2="0" />
+      <line x1="0" x2="30" y1="10" y2="10" />
+      <line x1="0" x2="30" y1="20" y2="20" />
+    </g>
+  </svg>
+  <div id="nav_page_wrap">
+    <!-- 按钮层 -->
+    <div class="nav-button-layer">
+      <!-- 系统首页按钮组 -->
+      <div style="left:10px; top:260px" id="jssy_button_group" class="button-group">
+        <!-- 竞赛回放 -->
+        <div data-state="off" style="left:66px; top:103px" style="" id="jshf_button" class="nav-single-button">
+          <img id="jshf_default_icon" class="default" src="./res/images/jshf_default.png" />
+          <img data-state="off" id="jshf_light_icon" class="light" src="./res/images/jshf_light.png" />
+          <svg class="nav-btn-event-listener" id="jshf_event_listener" width="140" height="140">
+            <path data-state="off" data-mate="jshf" d="M53,0L110,30L110,92L53,127L0,95L0,34Z" fill="#fff" />
+          </svg>
+        </div>
+        <!-- 竞赛首页 -->
+        <div data-state="on" style="left:120px; top:10px" class="nav-single-button">
+          <img id="jssy_default_icon" class="default" src="./res/images/jssy_default.png" />
+          <img data-state="on" id="jssy_light_icon" class="light active" src="./res/images/jssy_light.png" />
+          <svg class="nav-btn-event-listener" id="jssy_event_listener" width="140" height="140">
+            <path data-state="on" data-mate="jssy" d="M53,0L110,30L110,92L53,127L0,95L0,34Z" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+      <!-- 入口管理按钮组 -->
+      <div style="left:130px; top:40px" id="rkgl_button_group" class="button-group">
+        <!-- 比赛进入 -->
+        <div data-state="off" style="left:120px; top:10px" class="nav-single-button">
+          <img id="bsjr_default_icon" class="default" src="./res/images/bsjr_default.png" />
+          <img data-state="off" id="bsjr_light_icon" class="light" src="./res/images/bsjr_light.png" />
+          <svg class="nav-btn-event-listener" id="bsjr_event_listener" width="140" height="140">
+            <path data-state="off" data-mate="bsjr" d="M53,0L110,30L110,92L53,127L0,95L0,34Z" fill="#fff" />
+          </svg>
+        </div>
+        <!-- 比赛维护 -->
+        <div data-state="off" style="left:227px; top:12px" style="" id="bswh_button" class="nav-single-button">
+          <img id="bswh_default_icon" class="default" src="./res/images/bswh_default.png" />
+          <img data-state="off" id="bswh_light_icon" class="light" src="./res/images/bswh_light.png" />
+          <svg class="nav-btn-event-listener" id="bswh_event_listener" width="140" height="140">
+            <path data-state="off" data-mate="bswh" d="M53,0L110,30L110,92L53,127L0,95L0,34Z" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+      <!-- 队伍管理按钮组 -->
+      <div style="left:290px; top:200px" id="dwgl_button_group" class="button-group">
+        <!-- 团队维护 -->
+        <div data-state="off" style="left:175px; top:104px" style="" id="tdwh_button" class="nav-single-button">
+          <img id="tdwh_default_icon" class="default" src="./res/images/tdwh_default.png" />
+          <img data-state="off" id="tdwh_light_icon" class="light" src="./res/images/tdwh_light.png" />
+          <svg class="nav-btn-event-listener" id="tdwh_event_listener" width="140" height="140">
+            <path data-state="off" data-mate="tdwh" d="M53,0L110,30L110,92L53,127L0,95L0,34Z" fill="#fff" />
+          </svg>
+        </div>
+        <!-- 赛员维护 -->
+        <div data-state="off" style="left:120px; top:10px" class="nav-single-button">
+          <img id="sywh_default_icon" class="default" src="./res/images/sywh_default.png" />
+          <img data-state="off" id="sywh_light_icon" class="light" src="./res/images/sywh_light.png" />
+          <svg class="nav-btn-event-listener" id="sywh_event_listener" width="140" height="140">
+            <path data-state="off" data-mate="sywh" d="M53,0L110,30L110,92L53,127L0,95L0,34Z" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+      <!-- 竞赛管理按钮组 -->
+      <div style="left:140px; top:430px" id="jsgl_button_group" class="button-group">
+        <!-- 赛题维护 -->
+        <div data-state="off" style="left:120px; top:10px" class="nav-single-button">
+          <img id="stwh_default_icon" class="default" src="./res/images/stwh_default.png" />
+          <img data-state="off" id="stwh_light_icon" class="light" src="./res/images/stwh_light.png" />
+          <svg class="nav-btn-event-listener" id="stwh_event_listener" width="140" height="140">
+            <path data-state="off" data-mate="stwh" d="M53,0L110,30L110,92L53,127L0,95L0,34Z" fill="#fff" />
+          </svg>
+        </div>
+        <!-- 竞赛维护 -->
+        <div data-state="off" style="left:227px; top:10px" style="" id="tdwh_button" class="nav-single-button">
+          <img id="jswh_default_icon" class="default" src="./res/images/jswh_default.png" />
+          <img data-state="off" id="jswh_light_icon" class="light" src="./res/images/jswh_light.png" />
+          <svg class="nav-btn-event-listener" id="jswh_event_listener" width="140" height="140">
+            <path data-state="off" data-mate="jswh" d="M53,0L110,30L110,92L53,127L0,95L0,34Z" fill="#fff" />
+          </svg>
+        </div>
+        <!-- 竞赛统计 -->
+        <div data-state="off" style="left:174px; top:103px" style="" id="tdwh_button" class="nav-single-button">
+          <img id="jstj_default_icon" class="default" src="./res/images/jstj_default.png" />
+          <img data-state="off" id="jstj_light_icon" class="light" src="./res/images/jstj_light.png" />
+          <svg class="nav-btn-event-listener" id="jstj_event_listener" width="140" height="140">
+            <path data-state="off" data-mate="jstj" d="M53,0L110,30L110,92L53,127L0,95L0,34Z" fill="#fff" />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <!-- 底部导航栏 -->
+    <div class="nav-bar-layer">
+      <div data-mate="jssy" class="nav-menu">系统首页</div>
+      <div data-mate="jsgl" class="nav-menu">竞赛管理</div>
+      <div data-mate="dwgl" class="nav-menu">队伍管理</div>
+      <div data-mate="rkgl" class="nav-menu">入口管理</div>
+    </div>
+    <!-- 顶部LOGO层 -->
+    <div class="logo-layer">
+      <img src="./res/images/logo.png">
+    </div>
+    <!-- 左侧投影 -->
+    <div class="left-text-layer">
+      <svg class="left-layer-light-layer">
+        <defs>
+          <style xmlns="http://www.w3.org/2000/svg">
+            .left-cls-1 {
+              fill: url(#left-layer-light-face);
+            }
+
+            .left-cls-2 {
+              fill: none;
+              stroke-miterlimit: 10;
+              stroke-width: 4px;
+              stroke: url(#left-layer-light-line);
+            }
+          </style>
+          <linearGradient xmlns="http://www.w3.org/2000/svg" id="left-layer-light-face" x1="1.4" y1="446.5" x2="662.9" y2="446.5" gradientTransform="matrix(-1, 0, 0, 1, 662.9, 0)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#48cbf5" stop-opacity="0.5" />
+            <stop offset="0.58" stop-color="#48cbf5" stop-opacity="0.16" />
+            <stop offset="1" stop-color="#48cbf5" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient xmlns="http://www.w3.org/2000/svg" id="left-layer-light-line" x1="-2.69" y1="446.53" x2="587.78" y2="446.53" gradientTransform="matrix(-1, 0, 0, 1, 662.9, 0)" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#4ff0f2" />
+            <stop offset="1" stop-color="#4ff0f2" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <g transform="scale(0.8,0.8) translate(195,50)" class="left-layer-light-main">
+          <polygon class="left-cls-1" points="661.5 482.42 2 0 0 893 661.5 482.42" />
+          <polyline class="left-cls-2" points="76 57 662.9 482.21 95 836" />
+        </g>
+      </svg>
+      <div class="left-text-layer-main">
+        <h4>您当前位于</h4>
+        <h1 id="nav_page_show_position">系统首页->竞赛首页</h1>
+        <h3>请选择您要传送的目的地 <span style="animation:textBink .4s infinite;">&gt;</span><span style="animation:textBink .4s .1s infinite;">&gt;</span><span style="animation:textBink .4s .2s infinite;">&gt;</span></h4>
+      </div>
+    </div>
+    <!-- 右侧投影 -->
+    <div class="right-are-you-layer">
+      <svg class="right-layer-light-layer">
+        <defs>
+          <style xmlns="http://www.w3.org/2000/svg">
+            .cls-1 {
+              fill: url(#right-layer-light-face);
+            }
+
+            .cls-2 {
+              fill: none;
+              stroke-miterlimit: 10;
+              stroke-width: 4px;
+              stroke: url(#right-layer-light-line);
+            }
+          </style>
+          <linearGradient xmlns="http://www.w3.org/2000/svg" id="right-layer-light-face" x1="4.09" y1="446.5" x2="665.59" y2="446.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#48cbf5" stop-opacity="0.5" />
+            <stop offset="0.58" stop-color="#48cbf5" stop-opacity="0.16" />
+            <stop offset="1" stop-color="#48cbf5" stop-opacity="0" />
+          </linearGradient>
+          <linearGradient xmlns="http://www.w3.org/2000/svg" id="right-layer-light-line" y1="446.53" x2="590.47" y2="446.53" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#4ff0f2" />
+            <stop offset="1" stop-color="#4ff0f2" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <g transform="scale(0.8,0.8) translate(0,50)" class="right-layer-light-main">
+          <polygon class="cls-1" points="4.09 482.42 663.59 0 665.59 893 4.09 482.42" />
+          <polyline class="cls-2" points="589.59 57 2.69 482.21 570.59 836" />
+        </g>
+      </svg>
+      <div class="nav-right-you-layer" style="">
+        <img src="./res/images/you.png">
+      </div>
+    </div>
+    <!-- 关闭按钮 -->
+    <svg id="nav_page_close">
+      <g transform="translate(5,5)">
+        <line x1="0" x2="20" y1="0" y2="20" />
+        <line x1="20" x2="0" y1="0" y2="20" />
+      </g>
+    </svg>
+    <!-- 登陆状态 -->
+    <div class="nav-page-login-state">
+      <i><img id="nav_page_user_photo" src="./res/images/user.png"></i>
+      <div id="nav_page_user_name">Game</div>
+      <div id="nav_page_logout">退出系统</div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="./res/js/d3.min.js"></script>
+<script type="text/javascript" src="./res/js/nav-page.min.js"></script>
+</body>
+
+</html>

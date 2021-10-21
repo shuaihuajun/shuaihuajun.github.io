@@ -1,0 +1,58 @@
+[
+	{
+		"name":"系统首页",
+		"list":[
+			{
+				"simpleName": "jssy",
+				"name":"竞赛首页"
+			},
+			{
+				"simpleName": "jshf",
+				"name":"竞赛回放"
+			}
+		]
+	},
+	{
+		"name":"竞赛管理",
+		"list":[
+			{
+				"simpleName": "stwh",
+				"name":"赛题维护"
+			},
+			{
+				"simpleName": "jswh",
+				"name":"竞赛维护"
+			},
+			{
+				"simpleName": "jstj",
+				"name":"竞赛统计"
+			}
+		]
+	},
+	{
+		"name":"队伍管理",
+		"list":[
+			{
+				"simpleName": "sywh",
+				"name":"赛员维护"
+			},
+			{
+				"simpleName": "tdwh",
+				"name":"团队维护"
+			}
+		]
+	},
+	{
+		"name":"入口管理",
+		"list":[
+			{
+				"simpleName": "bsjr",
+				"name":"比赛进入"
+			},
+			{
+				"simpleName": "bswh",
+				"name":"比赛维护"
+			}
+		]
+	}
+]

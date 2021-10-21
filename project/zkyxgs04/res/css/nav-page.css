@@ -1,0 +1,407 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#nav_page_wrap {
+  opacity: 0;
+  font-family: "Microsoft YaHei", "微软雅黑", "MicrosoftJhengHei", "华文细黑", "STHeiti", "MingLiu" !important;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/earth-background.jpg);
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #000000;
+  /*全部按钮层*/
+  /*logo层*/
+  /*底部导航层*/
+  /*左侧投影*/
+  /*右侧投影*/
+  /*用户登陆状态*/
+}
+#nav_page_wrap:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url(../images/l.png);
+  opacity: 0.6;
+}
+#nav_page_wrap .nav-button-layer {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  margin-left: -350px;
+  margin-top: -350px;
+  width: 700px;
+  height: 700px;
+  background-color: rgba(0, 0, 0, 0.07);
+  border-radius: 1000px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  /*按钮组*/
+}
+#nav_page_wrap .nav-button-layer .button-group {
+  position: absolute;
+  /*单个按钮层*/
+}
+#nav_page_wrap .nav-button-layer .button-group .nav-single-button {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+}
+#nav_page_wrap .nav-button-layer .button-group .nav-single-button .default {
+  position: absolute;
+  opacity: 1;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  transition: opacity .12s;
+}
+#nav_page_wrap .nav-button-layer .button-group .nav-single-button .light {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  z-index: 4;
+  left: -25px;
+  top: -23px;
+  transition: opacity .12s;
+}
+#nav_page_wrap .nav-button-layer .button-group .nav-single-button .light.active {
+  opacity: 1;
+}
+#nav_page_wrap .nav-button-layer .button-group .nav-single-button svg {
+  position: absolute;
+  z-index: 8;
+}
+#nav_page_wrap .nav-button-layer .button-group .nav-single-button svg path {
+  cursor: pointer;
+  fill-opacity: 0.02;
+}
+#nav_page_wrap .logo-layer {
+  z-index: 1000;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  margin-left: -150px;
+  width: 300px;
+  height: auto;
+}
+#nav_page_wrap .logo-layer img {
+  width: 100%;
+  height: auto;
+}
+#nav_page_wrap .nav-bar-layer {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  width: 630px;
+  margin-left: -270px;
+}
+#nav_page_wrap .nav-bar-layer .nav-menu {
+  text-align: center;
+  width: 133px;
+  height: 52px;
+  line-height: 52px;
+  padding-top: 5px;
+  font-size: 19px;
+  font-weight: lighter;
+  float: left;
+  color: #bde9ff;
+  margin: 0 2px;
+  background-image: url(..//images/nav-bar-bg.png);
+  background-repeat: no-repeat;
+  background-size: 133px 52px;
+}
+#nav_page_wrap .nav-bar-layer .nav-menu:hover {
+  cursor: pointer;
+}
+#nav_page_wrap .nav-bar-layer:after {
+  clear: both;
+  content: '';
+  display: block;
+}
+#nav_page_wrap .left-text-layer {
+  position: absolute;
+  z-index: 100;
+  width: 700px;
+  height: 900px;
+  top: 50%;
+  left: 50%;
+  margin-left: -1070px;
+  margin-top: -450px;
+  /*background-color: rgba(0,0,0,0.2);*/
+}
+#nav_page_wrap .left-text-layer svg.left-layer-light-layer {
+  width: 100%;
+  height: 100%;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main {
+  cursor: default;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -110px;
+  width: 100%;
+  padding: 0 0 0 260px;
+  box-sizing: border-box;
+  color: #5ac3f7;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h1 {
+  font-size: 37px;
+  font-weight: normal;
+  margin: 5px 0;
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px #4ef2f2;
+  color: #C7F8FF;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h1::selection {
+  color: #5ac3f7;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h1::-moz-selection {
+  color: #5ac3f7;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h3 {
+  font-weight: lighter;
+  font-size: 18px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 18px #4ef2f2;
+  color: #C7F8FF;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h3 span {
+  font-weight: bold;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h3::selection {
+  color: #5ac3f7;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h3::-moz-selection {
+  color: #5ac3f7;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h4 {
+  font-weight: lighter;
+  font-size: 25px;
+  letter-spacing: 3px;
+  color: #C7F8FF;
+  padding-bottom: 20px;
+  text-shadow: 0 0 12px #4ef2f2;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h4::selection {
+  color: #5ac3f7;
+}
+#nav_page_wrap .left-text-layer .left-text-layer-main h4::-moz-selection {
+  color: #5ac3f7;
+}
+#nav_page_wrap .right-are-you-layer {
+  position: absolute;
+  z-index: 100;
+  width: 700px;
+  height: 900px;
+  top: 50%;
+  left: 50%;
+  margin-left: 370px;
+  margin-top: -450px;
+  /*background-color: rgba(0,0,0,0.2);*/
+}
+#nav_page_wrap .right-are-you-layer svg.right-layer-light-layer {
+  width: 100%;
+  height: 100%;
+}
+#nav_page_wrap .right-are-you-layer .nav-right-you-layer {
+  top: 50%;
+  left: 50%;
+  margin-top: -184px;
+  margin-left: -196px;
+  position: absolute;
+  width: 230px;
+  height: auto;
+  animation: youUpToDown 3s infinite;
+}
+#nav_page_wrap .right-are-you-layer .nav-right-you-layer img {
+  width: 100%;
+  height: auto;
+}
+#nav_page_wrap #nav_page_close {
+  display: block;
+  position: absolute;
+  z-index: 100;
+  top: 30px;
+  left: 30px;
+  width: 30px;
+  height: 30px;
+}
+#nav_page_wrap #nav_page_close:hover {
+  animation: closeButtonRotateAnimate 0.2s forwards;
+  cursor: pointer;
+}
+#nav_page_wrap #nav_page_close:hover line {
+  opacity: 1;
+}
+#nav_page_wrap #nav_page_close line {
+  stroke: #4ef2f2;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.9;
+  transition: all .3s;
+}
+#nav_page_wrap .nav-page-login-state {
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  z-index: 100;
+  color: #C7F8FF;
+  height: 60px;
+  opacity: 0.9;
+}
+#nav_page_wrap .nav-page-login-state i {
+  display: block;
+  border-radius: 5px;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  border: 2px solid #C7F8FF;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+#nav_page_wrap .nav-page-login-state i img#nav_page_user_photo {
+  width: 100%;
+  height: 100%;
+}
+#nav_page_wrap .nav-page-login-state #nav_page_user_name {
+  position: absolute;
+  right: 63px;
+  top: 3px;
+  font-size: 22px;
+}
+#nav_page_wrap .nav-page-login-state #nav_page_logout {
+  position: absolute;
+  bottom: 6px;
+  right: 63px;
+  font-size: 15px;
+  width: 60px;
+}
+/*呼出传送门按钮*/
+#navigate_nav_page_menu {
+  position: absolute;
+  z-index: 100;
+  top: 30px;
+  left: 30px;
+  width: 30px;
+  height: 30px;
+}
+#navigate_nav_page_menu:hover {
+  cursor: pointer;
+}
+#navigate_nav_page_menu line {
+  stroke: #4ef2f2;
+  stroke-width: 2;
+  stroke-linecap: round;
+  opacity: 0.9;
+  transition: all .3s;
+}
+/*-----------------------------------*/
+/*earth-circle-turn-around*/
+@keyframes earthCircleOuter {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 190;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes earthCircleInner {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dashoffset: 510;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+/*you-up-to-down*/
+@keyframes youUpToDown {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  60% {
+    transform: translate3d(0, 60px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+/*text-bink*/
+@keyframes textBink {
+  0% {
+    color: #5ac3f7;
+  }
+  50% {
+    color: #C7F8FF;
+  }
+  100% {
+    color: #5ac3f7;
+  }
+}
+/*close-button-animate*/
+@keyframes closeButtonRotateAnimate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(90deg);
+  }
+}
+/*shake animation*/
+@keyframes shakeAnimation {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  10% {
+    transform: translate3d(4px, -3px, 0);
+  }
+  20% {
+    transform: translate3d(7px, 7px, 0);
+  }
+  30% {
+    transform: translate3d(2px, -6px, 0);
+  }
+  40% {
+    transform: translate3d(3px, -6px, 0);
+  }
+  60% {
+    transform: translate3d(-5px, 0, 0);
+  }
+  80% {
+    transform: translate3d(-6px, 0, 0);
+  }
+  90% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+/*# sourceMappingURL=nav-page.css.map */

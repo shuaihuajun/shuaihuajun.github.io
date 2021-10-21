@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>实时排行榜网安竞赛电子主题 | 作品集 - 陈帅华的官方网站</title>
+  <style type="text/css">
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: hsla(0, 0%, 0%, 1);
+    }
+  </style>
+</head>
+
+<body>
+  <script type="text/javascript" src="./main_back.js"></script>
+  <script type="text/javascript">
+    var canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+
+    var topTenManager = [];
+    for (var i = 0; i < 5; i++) {
+      topTenManager.push(new Rank({
+        y: 90 + i * 150,
+        x: window.innerWidth / 2 - 260,
+        rankNumber: i + 1,
+        width: 400,
+        name: `AKA${Math.ceil(100 + Math.random() * 1000)}`,
+        photoSrc: './cat.jpg',
+        starNumber: 16 - i * 2
+      }));
+    }
+    (function render() {
+      requestAnimationFrame(render);
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      for (var i = 0; i < topTenManager.length; i++) {
+        topTenManager[i].draw(ctx);
+      }
+    }());
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,818 @@
+@charset "UTF-8";
+* {
+  cursor: default;
+  margin: 0px;
+  padding: 0px;
+  font-weight: lighter;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: "Microsoft YaHei", "微软雅黑", "MicrosoftJhengHei", "华文细黑", "STHeiti", "MingLiu" !important;
+}
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+.page {
+  position: absolute;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+}
+.ux-element-wrap {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+#nav_bg_canvas {
+  position: relative;
+  z-index: -10;
+}
+#ux_home_renderer {
+  position: absolute;
+  z-index: 7;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+#ux_home_renderer .uxperson.top .left-eye {
+  bottom: 20px;
+}
+#ux_home_renderer .uxperson.top .right-eye {
+  bottom: 20px;
+}
+#ux_home_renderer .uxperson.top .icon-wrap {
+  bottom: 40px;
+}
+#ux_home_renderer .uxperson.bottom .left-eye {
+  top: 20px;
+}
+#ux_home_renderer .uxperson.bottom .right-eye {
+  top: 20px;
+}
+#ux_home_renderer .uxperson.bottom .icon-wrap {
+  top: 40px;
+}
+#ux_home_renderer .uxperson {
+  cursor: pointer;
+  position: absolute;
+  z-index: 0;
+  width: 50px;
+  border-radius: 100px;
+}
+#ux_home_renderer .uxperson .left-eye {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  display: block;
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-left: -11px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+#ux_home_renderer .uxperson .right-eye {
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  display: block;
+  content: '';
+  width: 8px;
+  height: 8px;
+  margin-left: 4px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+#ux_home_renderer .uxperson .icon-wrap {
+  cursor: pointer;
+  position: absolute;
+  left: 6px;
+  border: 2px solid #fff;
+  width: 34px;
+  height: 34px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 19px;
+}
+.main-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-weight: normal;
+  font-size: 17px;
+  /*顶部左侧菜单*/
+  /*帮助&关于菜单*/
+  /*目录页面*/
+  /*----------------------------------------------------------------------------------*/
+  /*系统设计页面*/
+  /*----------------------------------------------------------------------------------*/
+  /*系统实例DEMO页面*/
+  /*----------------------------------------------------------------------------------*/
+  /*系统实现页面*/
+}
+.main-wrap .page-system {
+  left: 100%;
+  z-index: 100;
+  -webkit-transition: left .5s;
+}
+.main-wrap .page-system .page-system-design-background {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: -100;
+}
+.main-wrap .page-system .page-main-content {
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  margin-left: -408.5px;
+  margin-top: -230.394px;
+  width: 817px;
+  height: 490.2px;
+}
+.main-wrap .page-system .page-main-content .content-name-wrap {
+  position: absolute;
+  top: -50px;
+  left: 5px;
+}
+.main-wrap .page-system .page-main-content .content-name-wrap .name-ch {
+  font-size: 27px;
+  color: #fff;
+  font-weight: lighter;
+  line-height: 37px;
+}
+.main-wrap .page-system .page-main-content .content-name-wrap .name-en {
+  font-size: 22px;
+  font-weight: lighter;
+  color: #f4de21;
+}
+.main-wrap .page-system .page-main-content .media-wrap {
+  position: absolute;
+  z-index: 100000;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: 5px solid #f4c021;
+}
+.main-wrap .page-system .page-main-content .media-wrap img {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  transform: scale(1.2, 1.2);
+  animation: page-mainn-content-scale 18s linear infinite;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_left,
+.main-wrap .page-system .page-main-content #example_nav_list_left,
+.main-wrap .page-system .page-main-content #architecture_nav_list_left {
+  width: 0;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_left .nav-list-item,
+.main-wrap .page-system .page-main-content #example_nav_list_left .nav-list-item,
+.main-wrap .page-system .page-main-content #architecture_nav_list_left .nav-list-item {
+  width: 140px;
+  height: 50px;
+  border-radius: 100px 0 0 100px;
+  position: absolute;
+  z-index: 0;
+  left: -70px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background-color: red;
+  transition: background-color 0.16s, left 0.12s;
+  -webkit-transition: background-color 0.16s, left 0.12s;
+  -o-transition: background-color 0.16s, left 0.12s;
+  -moz-transition: background-color 0.16s, left 0.12s;
+  -ms-transition: background-color 0.16s, left 0.12s;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_left .nav-list-item.active,
+.main-wrap .page-system .page-main-content #example_nav_list_left .nav-list-item.active,
+.main-wrap .page-system .page-main-content #architecture_nav_list_left .nav-list-item.active {
+  left: -90px;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_left .nav-list-item .icon-wrap,
+.main-wrap .page-system .page-main-content #example_nav_list_left .nav-list-item .icon-wrap,
+.main-wrap .page-system .page-main-content #architecture_nav_list_left .nav-list-item .icon-wrap {
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  left: 25px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 30px;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_right,
+.main-wrap .page-system .page-main-content #example_nav_list_right,
+.main-wrap .page-system .page-main-content #architecture_nav_list_right {
+  width: 0;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  top: 0;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_right .nav-list-item,
+.main-wrap .page-system .page-main-content #example_nav_list_right .nav-list-item,
+.main-wrap .page-system .page-main-content #architecture_nav_list_right .nav-list-item {
+  width: 140px;
+  height: 50px;
+  border-radius: 0 100px 100px 0;
+  position: absolute;
+  z-index: 0;
+  left: -70px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background-color: red;
+  transition: background-color 0.16s, left 0.12s;
+  -webkit-transition: background-color 0.16s, left 0.12s;
+  -o-transition: background-color 0.16s, left 0.12s;
+  -moz-transition: background-color 0.16s, left 0.12s;
+  -ms-transition: background-color 0.16s, left 0.12s;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_right .nav-list-item.active,
+.main-wrap .page-system .page-main-content #example_nav_list_right .nav-list-item.active,
+.main-wrap .page-system .page-main-content #architecture_nav_list_right .nav-list-item.active {
+  left: -50px;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_right .nav-list-item .icon-wrap,
+.main-wrap .page-system .page-main-content #example_nav_list_right .nav-list-item .icon-wrap,
+.main-wrap .page-system .page-main-content #architecture_nav_list_right .nav-list-item .icon-wrap {
+  cursor: pointer;
+  position: absolute;
+  top: 8px;
+  right: 25px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 30px;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_bottom,
+.main-wrap .page-system .page-main-content #example_nav_list_bottom,
+.main-wrap .page-system .page-main-content #architecture_nav_list_bottom {
+  width: 100%;
+  height: 0;
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  bottom: 0;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_bottom .nav-list-item,
+.main-wrap .page-system .page-main-content #example_nav_list_bottom .nav-list-item,
+.main-wrap .page-system .page-main-content #architecture_nav_list_bottom .nav-list-item {
+  width: 50px;
+  height: 140px;
+  border-radius: 0 0 100px 100px;
+  position: absolute;
+  z-index: 0;
+  top: -70px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  background-color: red;
+  transition: background-color 0.16s, left 0.12s, top 0.12s;
+  -webkit-transition: background-color 0.16s, left 0.12s, top 0.12s;
+  -o-transition: background-color 0.16s, left 0.12s, top 0.12s;
+  -moz-transition: background-color 0.16s, left 0.12s, top 0.12s;
+  -ms-transition: background-color 0.16s, left 0.12s, top 0.12s;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_bottom .nav-list-item.active,
+.main-wrap .page-system .page-main-content #example_nav_list_bottom .nav-list-item.active,
+.main-wrap .page-system .page-main-content #architecture_nav_list_bottom .nav-list-item.active {
+  top: -50px;
+}
+.main-wrap .page-system .page-main-content #design_nav_list_bottom .nav-list-item .icon-wrap,
+.main-wrap .page-system .page-main-content #example_nav_list_bottom .nav-list-item .icon-wrap,
+.main-wrap .page-system .page-main-content #architecture_nav_list_bottom .nav-list-item .icon-wrap {
+  cursor: pointer;
+  position: absolute;
+  left: 8px;
+  bottom: 25px;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  width: 30px;
+  height: 30px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 30px;
+}
+.main-wrap .page-top-nav {
+  position: absolute;
+  z-index: 100;
+  top: 40px;
+  left: 30px;
+}
+.main-wrap .page-top-nav li,
+.main-wrap .page-top-nav span {
+  cursor: default;
+  display: inline-block;
+  margin: 0px 4px;
+  list-style: none;
+  float: left;
+  color: #fff;
+  font-weight: lighter;
+}
+.main-wrap .page-top-nav li {
+  color: rgba(255, 255, 255, 0.8);
+  -webkit-transition: color 0.23s, text-shadow 0.23s;
+}
+.main-wrap .page-top-nav li:hover {
+  cursor: pointer;
+  color: #ffffff;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.main-wrap ul.page-top-more-info {
+  z-index: 100;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+.main-wrap ul.page-top-more-info li {
+  list-style: none;
+}
+.main-wrap ul.page-top-more-info > li {
+  color: rgba(255, 255, 255, 0.8);
+  -webkit-transition: color .3s;
+  font-weight: lighter;
+  cursor: pointer;
+  width: 60px;
+  text-align: center;
+  line-height: 30px;
+  float: left;
+  margin: 0px 2px;
+}
+.main-wrap ul.page-top-more-info > li:hover {
+  color: #ffffff;
+}
+.main-wrap ul.page-top-more-info > li ul {
+  display: none;
+  position: relative;
+  margin-top: 6px;
+  margin-left: -6px;
+  width: 80px;
+  background: linear-gradient(to bottom, #353535, #1d1d1d, #353535);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+}
+.main-wrap ul.page-top-more-info > li ul.active {
+  display: block;
+}
+.main-wrap ul.page-top-more-info > li ul:before {
+  position: absolute;
+  top: -11px;
+  left: 50%;
+  content: '';
+  display: block;
+  width: 0;
+  margin-left: -10px;
+  height: 0;
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  border-left: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.main-wrap ul.page-top-more-info > li ul li {
+  position: relative;
+  font-size: 14px;
+  line-height: 36px;
+  transition: transform .12s;
+}
+.main-wrap ul.page-top-more-info > li ul li:after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0));
+}
+.main-wrap ul.page-top-more-info > li ul li:hover {
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+.main-wrap #page_top {
+  z-index: 100;
+  background-color: #1e1e1e;
+}
+.main-wrap #page_top .page-top-nav {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -175px;
+  margin-top: -70px;
+  width: 1px;
+  height: 1px;
+}
+.main-wrap #page_top .page-top-nav .page-top-title-name {
+  position: absolute;
+  font-size: 30px;
+  width: 500px;
+  color: #fff;
+  font-weight: lighter;
+  left: -350px;
+  top: -63px;
+}
+.main-wrap #page_top .page-top-nav li {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  list-style: none;
+  width: 350px;
+  height: 210px;
+  border: 1px solid transparent;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  transform: scale(0.98, 0.98);
+  -webkit-transition: box-shadow 0.27s, border 0.15s, transform 0.2s;
+}
+.main-wrap #page_top .page-top-nav li:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.35);
+  transform: scale(1.03, 1.03);
+}
+.main-wrap #page_top .page-top-nav li .nav-name .nav-name-ch {
+  fill: #fff;
+  font-size: 25px;
+  font-weight: lighter;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
+}
+.main-wrap #page_top .page-top-nav li .nav-name .nav-name-en {
+  font-size: 21px;
+  font-weight: lighter;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-design-wrap {
+  cursor: pointer;
+  left: -360px;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-design-wrap:hover {
+  cursor: pointer;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-design-wrap:hover .nav-design-node1 {
+  animation: node1-opacity-shake 1.1s infinite;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-design-wrap:hover .nav-design-node2 {
+  animation: node2-opacity-shake 1.1s 0.35s infinite;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-design-wrap:hover .nav-design-node3 {
+  animation: node3-opacity-shake 1.1s 0.7s infinite;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-example-wrap {
+  cursor: pointer;
+  left: 0px;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-example-wrap:hover .nav-example-node1 {
+  animation: node1-opacity-shake 1.1s infinite;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-example-wrap:hover .nav-example-node2 {
+  animation: node2-opacity-shake 1.1s 0.35s infinite;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-example-wrap:hover .nav-example-node3 {
+  animation: node3-opacity-shake 1.1s 0.7s infinite;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-architecture-wrap {
+  cursor: pointer;
+  left: 360px;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-architecture-wrap:hover .nav-architecture-node1 {
+  animation: node1-opacity-shake 1.1s infinite;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-architecture-wrap:hover .nav-architecture-node2 {
+  animation: node2-opacity-shake 1.1s 0.35s infinite;
+}
+.main-wrap #page_top .page-top-nav .page-top-nav-system-architecture-wrap:hover .nav-architecture-node3 {
+  animation: node3-opacity-shake 1.1s 0.7s infinite;
+}
+/*--------icon-----------animation----------------------------*/
+@keyframes node1-opacity-shake {
+  0% {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    stroke: rgba(255, 255, 255, 0.35);
+  }
+  100% {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+}
+@keyframes node2-opacity-shake {
+  0% {
+    stroke: rgba(255, 255, 255, 0.25);
+  }
+  50% {
+    stroke: rgba(255, 255, 255, 0.55);
+  }
+  100% {
+    stroke: rgba(255, 255, 255, 0.25);
+  }
+}
+@keyframes node3-opacity-shake {
+  0% {
+    stroke: rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    stroke: rgba(255, 255, 255, 0.75);
+  }
+  100% {
+    stroke: rgba(255, 255, 255, 0.3);
+  }
+}
+/*------------main-content-animation-----------------------*/
+@keyframes page-mainn-content-scale {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.3, 1.3);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+/*----------------圆点加载中动画---------------------------*/
+@keyframes circle-animation {
+  0% {
+    transform: translate(20px, 0px);
+  }
+  40% {
+    transform: translate(20px, 0px);
+  }
+  60% {
+    transform: translate(0px, 0px);
+  }
+  70% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(20px, 0px);
+  }
+}
+/*-----------------------加载标题动画------------------------*/
+@keyframes title-in-animation {
+  0% {
+    opacity: 0;
+    transform: translate(0px, 20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+}
+@keyframes title-out-animation {
+  0% {
+    opacity: 1;
+    transform: translate(0px, 0px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(0px, -20px);
+  }
+}
+/*-----------------------加载媒体文件动画------------------------*/
+@keyframes media-in-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes media-out-animation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+/*--------------------------------------------------*/
+/*小怪物眼睛*/
+@keyframes uxperson-eye-blink-1 {
+  0% {
+    height: 8px;
+  }
+  8% {
+    height: 8px;
+  }
+  10% {
+    height: 2px;
+  }
+  12% {
+    height: 8px;
+  }
+  20% {
+    height: 8px;
+  }
+  28% {
+    height: 8px;
+  }
+  30% {
+    height: 2px;
+  }
+  31% {
+    height: 8px;
+  }
+  40% {
+    height: 8px;
+  }
+  50% {
+    height: 8px;
+  }
+  60% {
+    height: 8px;
+  }
+  70% {
+    height: 8px;
+  }
+  80% {
+    height: 8px;
+  }
+  90% {
+    height: 8px;
+  }
+  89% {
+    height: 8px;
+  }
+  91% {
+    height: 2px;
+  }
+  93% {
+    height: 8px;
+  }
+  100% {
+    height: 8px;
+  }
+}
+@keyframes uxperson-eye-blink-2 {
+  0% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  10% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  20% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  26% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  28% {
+    width: 2px;
+    transform: translate(2px, 0);
+  }
+  30% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  32% {
+    width: 2px;
+    transform: translate(2px, 0);
+  }
+  34% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  40% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  57% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  58% {
+    width: 2px;
+    transform: translate(2px, 0);
+  }
+  60% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  62% {
+    width: 2px;
+    transform: translate(2px, 0);
+  }
+  63% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  70% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  80% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  87% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  88% {
+    width: 2px;
+    transform: translate(2px, 0);
+  }
+  90% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  92% {
+    width: 2px;
+    transform: translate(2px, 0);
+  }
+  94% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+  100% {
+    width: 8px;
+    transform: translate(0, 0);
+  }
+}
+/*小怪物身体*/
+@keyframes uxperson-body-bottom {
+  0% {
+    transform: scale(1, 1);
+    transform-origin: 50% 100%;
+  }
+  25% {
+    transform: scale(1, 1.05);
+    transform-origin: 50% 100%;
+  }
+  50% {
+    transform: scale(1, 1);
+    transform-origin: 50% 100%;
+  }
+  75% {
+    transform: scale(1, 1.05);
+    transform-origin: 50% 100%;
+  }
+  100% {
+    transform: scale(1, 1);
+    transform-origin: 50% 100%;
+  }
+}
+@keyframes uxperson-body-top {
+  0% {
+    transform: scale(1, 1);
+    transform-origin: 50% 0%;
+  }
+  25% {
+    transform: scale(1, 1.05);
+    transform-origin: 50% 0%;
+  }
+  50% {
+    transform: scale(1, 1);
+    transform-origin: 50% 0%;
+  }
+  75% {
+    transform: scale(1, 1.05);
+    transform-origin: 50% 0%;
+  }
+  100% {
+    transform: scale(1, 1);
+    transform-origin: 50% 0%;
+  }
+}
+/*# sourceMappingURL=application_main.css.map */

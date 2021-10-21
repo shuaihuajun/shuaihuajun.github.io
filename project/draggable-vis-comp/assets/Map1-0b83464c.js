@@ -1,0 +1,1 @@
+import{r as a,w as h,b as r,c as s}from"./index-19e1a87c.js";const c=["width","height"],u={__name:"Map1",props:["w","h","settings"],setup(t){const e=t;return a(),h(()=>e.w,()=>{}),(i,n)=>(r(),s("iframe",{width:t.w,height:t.h,src:"https://shuaihuajun.github.io/project/wind/index.html",frameborder:"0"},null,8,c))}};export{u as default};

@@ -1,0 +1,38 @@
+[
+  {
+    "header": {
+      "parameterCategory": 1,
+      "parameterNumber": 2,
+      "la1": 37.99,
+      "la2": 37.85,
+      "lo1": 114.34,
+      "lo2": 115.69,
+      "nx": 3,
+      "ny": 2,
+      "dx": 0.03,
+      "dy": 0.03
+    },
+    "data": [
+      -5,
+      3,
+      -5,
+      6,
+      -5,
+      -6
+    ]
+  },
+  {
+    "header": {
+      "parameterCategory": 1,
+      "parameterNumber": 3
+    },
+    "data": [
+      -8,
+      -1,
+      6,
+      2,
+      -1,
+      2
+    ]
+  }
+]

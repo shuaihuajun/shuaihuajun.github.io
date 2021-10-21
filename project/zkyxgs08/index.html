@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>电路动效渗透模式电子主题 | 作品集 - 陈帅华的官方网站</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: linear-gradient(to bottom, hsl(173, 100%, 10%), hsl(193, 100%, 10%));
+    }
+  </style>
+</head>
+
+<body>
+  <script type="text/javascript" src="./main.js"></script>
+  <script type="text/javascript">
+
+    var canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+    var context = canvas.getContext('2d');
+    var win_ratio = window.devicePixelRatio;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.height = window.innerHeight + 'px';
+    canvas.style.width = window.innerWidth + 'px';
+
+
+    var brokenManager = [];
+
+    function createRandomBrock(beginX, beginY, xyChangeLength, maxYChangeLength) {
+
+      var stepNumber = 3 + parseInt(Math.random() * 2);
+      var points = [];
+      var _x = beginX;
+      var _y = beginY;
+      points.push([_x, _y]);
+      var _xsRandom;
+      var _xs;
+      var changeHistory = [];
+      var needChange;
+      var changeLength = xyChangeLength;
+      var stepLength;
+      for (var i = 0; i < stepNumber; i++) {
+        stepLength = 100 + Math.random() * 130;
+        if (stepLength > maxYChangeLength) {
+          stepLength = maxYChangeLength;
+        }
+
+        if (changeHistory.length == 0) {
+          needChange = parseInt(Math.random() * 2);
+
+          if (needChange == 1) {
+            _xsRandom = parseInt(Math.random() * 2);
+            if (_xsRandom) {
+              _xs = 1;
+            } else {
+              _xs = -1;
+            }
+            _x += _xs * changeLength;
+            _y += changeLength;
+          } else {
+            _y += stepLength;
+          }
+
+          points.push([_x, _y]);
+
+          changeHistory.push(needChange);
+          continue;
+        }
+        if (changeHistory[changeHistory.length - 1] == 0) {
+
+          needChange = parseInt(Math.random() * 2);
+
+          if (needChange == 1) {
+            _xsRandom = parseInt(Math.random() * 2);
+            if (_xsRandom) {
+              _xs = 1;
+            } else {
+              _xs = -1;
+            }
+            _x += _xs * changeLength;
+            _y += changeLength;
+          } else {
+            _y += stepLength;
+          }
+
+          points.push([_x, _y]);
+
+          changeHistory.push(needChange);
+          continue;
+        } else if (changeHistory[changeHistory.length - 1] == 1) {
+          needChange = 0;
+          _y += stepLength;
+          points.push([_x, _y]);
+          changeHistory.push(needChange);
+          continue;
+        }
+      }
+
+      brokenManager.push(new BrokenLine({
+        ctx: context,
+        points: points,
+        point_speed: 1,
+        step_length: 90,
+        lightWidth: 2,
+        lightBgStyle: 'hsla(182, 100%, 60%, 0.4)',
+        lightColorH: 179,
+        lightColorS: 100,
+        lightColorL: 50,
+      }));
+    }
+
+    for (let i = 0; i < 10; i++) {
+      createRandomBrock(window.innerWidth / 2 + Math.ceil(Math.random() * 300), 0, 30, window.innerHeight / 2);
+    }
+
+    (function render() {
+      requestAnimationFrame(render);
+      context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+      for (var i = 0; i < brokenManager.length; i++) {
+        brokenManager[i].draw();
+      }
+    }());
+
+  </script>
+</body>
+
+</html>

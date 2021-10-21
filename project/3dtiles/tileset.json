@@ -1,0 +1,57 @@
+{
+  "asset": {
+    "version": "0.0",
+    "tilesetVersion": "1.0.0-obj23dtiles"
+  },
+  "geometricError": 500,
+  "root": {
+    "boundingVolume": {
+      "region": [
+        2.000305829490821,
+        0.6639735229677058,
+        2.000309395432009,
+        0.6639745251905935,
+        0,
+        7.862199783325195
+      ]
+    },
+    "refine": "ADD",
+    "geometricError": 500,
+    "children": [
+      {
+        "boundingVolume": {
+          "region": [
+            2.000308400034075,
+            0.6639737357355935,
+            2.000309395432009,
+            0.6639745251905935,
+            0,
+            7.862199783325195
+          ]
+        },
+        "geometricError": 200,
+        "refine": "ADD",
+        "content": {
+          "url": "Batchedbox/tileset.json"
+        }
+      },
+      {
+        "boundingVolume": {
+          "region": [
+            2.000305829490821,
+            0.6639735229677058,
+            2.0003068248885647,
+            0.6639743124227059,
+            0,
+            4.501100063323975
+          ]
+        },
+        "geometricError": 200,
+        "refine": "ADD",
+        "content": {
+          "url": "Batchedhome/tileset.json"
+        }
+      }
+    ]
+  }
+}

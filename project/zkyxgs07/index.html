@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>庆祝时刻奖杯动效网安竞赛 | 作品集 - 陈帅华的官方网站</title>
+  <style type="text/css">
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: hsla(0, 0%, 0%, 1);
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <script type="text/javascript" src="congratulations.js"></script>
+  <script type="text/javascript">
+    var canvas = document.createElement('canvas');
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+
+
+    var congratulate = new Congratulate({
+      x: window.innerWidth / 2,
+      y: window.innerHeight / 2,
+    });
+    congratulate.bingo(ctx);
+
+    (function render() {
+      requestAnimationFrame(render);
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      congratulate.bingo(ctx);
+
+    }());
+  </script>
+</body>
+
+</html>

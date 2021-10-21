@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>网安渗透模式地图编辑 | 作品集 - 陈帅华的官方网站</title>
+  <style type="text/css">
+    * {
+      margin: 0px;
+      padding: 0px;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    html,
+    body {
+      background-color: hsl(0, 0%, 0%);
+      background-image: url(./background_earth.jpg);
+      background-attachment: fixed;
+      background-position: center;
+      cursor: default;
+    }
+
+    ::-webkit-scrollbar {
+      width: 0px;
+    }
+
+    .container {
+      width: 1200px;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .clear-float:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+
+    .nav {
+      position: relative;
+      width: 100%;
+      height: 40px;
+      margin: 0px 0 20px 0;
+    }
+
+    .nav #nav_back {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      height: 40px;
+      margin-top: -20px;
+      text-decoration: none;
+      color: #eee;
+      font-size: 18px;
+      padding-left: 25px;
+      line-height: 40px;
+    }
+
+    .nav #nav_back:before,
+    .nav #nav_back:after {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      content: '';
+      display: block;
+      width: 16px;
+      height: 2px;
+      border-radius: 100px;
+      background-color: hsla(0, 0%, 100%, 1);
+    }
+
+    .nav #nav_back:before {
+      transform: rotate(40deg) translate(0, 6px);
+    }
+
+    .nav #nav_back:after {
+      transform: rotate(-40deg) translate(0, -6px);
+    }
+
+    #map_wrap {
+      position: relative;
+      margin: 0 auto;
+    }
+
+    #gate_list_wrap {
+      width: 100%;
+      margin: 0 0 10px 0;
+    }
+
+    #gate_list_wrap .title {
+      width: 100%;
+      margin: 0 0 5px 0;
+    }
+
+    #gate_list_wrap .title li {
+      position: relative;
+      width: 14.2%;
+      display: block;
+      float: left;
+      font-size: 16px;
+      color: #eee;
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      font-weight: lighter;
+    }
+
+    #gate_list_wrap .title li.id {
+      width: 5%;
+    }
+
+    #gate_list_wrap .title li.name {
+      width: 20%;
+    }
+
+    #gate_list_wrap .title li.type {
+      width: 10%;
+    }
+
+    #gate_list_wrap .title li.range {
+      width: 20%;
+    }
+
+    #gate_list_wrap .title li.io {
+      width: 25%;
+    }
+
+    #gate_list_wrap .list {}
+
+    #gate_list_wrap .list::-webkit-scrollbar {
+      width: 10px;
+      background-color: hsla(198, 100%, 86%, 0.3);
+      border: 1px solid hsla(198, 100%, 83%, 0.8);
+      border-radius: 100px;
+    }
+
+    #gate_list_wrap .list::-webkit-scrollbar-thumb {
+      width: 10px;
+      background-color: hsla(198, 100%, 66%, 0.5);
+      border: 1px solid hsla(188, 84%, 83%, 1);
+      border-radius: 100px;
+    }
+
+    #gate_list_wrap .list ul {
+      width: 100%;
+      height: 45px;
+      line-height: 45px;
+    }
+
+    #gate_list_wrap .list ul.grey {
+      background-color: hsla(209, 56%, 31%, 0.5);
+    }
+
+    #gate_list_wrap .list ul>li {
+      position: relative;
+      width: 14.2%;
+      display: block;
+      float: left;
+      font-size: 14px;
+      color: #eee;
+      text-align: center;
+      height: 45px;
+      line-height: 45px;
+      font-weight: lighter;
+    }
+
+    #gate_list_wrap .list ul li.id {
+      width: 5%;
+    }
+
+    #gate_list_wrap .list ul li.name {
+      width: 20%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    #gate_list_wrap .list ul li.type {
+      width: 10%;
+    }
+
+    #gate_list_wrap .list ul li.range {
+      width: 20%;
+    }
+
+    #gate_list_wrap .list ul li.io {
+      width: 25%;
+      text-align: center;
+    }
+
+    #gate_list_wrap .list ul li.io .gate_panel {
+      position: absolute;
+      z-index: 10;
+      top: 10px;
+      left: 50%;
+      width: 140px;
+      margin-left: -70px;
+      background-color: hsla(0, 0%, 100%, 1);
+      border-radius: 1px;
+      box-shadow: 0 0 12px hsla(0, 0%, 0%, 0.7);
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    #gate_list_wrap .list ul li.io .gate_panel .gate {
+      box-sizing: border-box;
+      padding-left: 5px;
+      text-align: left;
+      height: 32px;
+      line-height: 32px;
+      color: hsla(0, 0%, 10%, 1);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: normal;
+    }
+
+    #gate_list_wrap .list ul li.io .gate_panel .gate:hover {
+      color: hsla(0, 0%, 100%, 1);
+      background-color: hsla(209, 56%, 31%, 0.5);
+    }
+
+    #gate_list_wrap .list ul li.io .btn-add {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 100px;
+      border: 1px solid #999;
+      margin-top: 10px;
+    }
+
+    #gate_list_wrap .list ul li.io.open .btn-add {
+      border: 1px solid #fff;
+      cursor: pointer;
+    }
+
+    #gate_list_wrap .list ul li.io .btn-add:before {
+      display: block;
+      content: '+';
+      font-size: 14px;
+      line-height: 20px;
+      color: hsla(0, 0%, 70%, 1);
+    }
+
+    #gate_list_wrap .list ul li.io.open .btn-add:before {
+      color: hsla(0, 0%, 100%, 1);
+    }
+
+    #gate_list_wrap .list ul li.io.open .input-mark {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 100px;
+      border: 2px solid #fff;
+      line-height: 20px;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-right: 4px;
+    }
+
+    #gate_list_wrap .list ul li .range-number {
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      margin-top: -10px;
+    }
+
+    #gate_list_wrap .list ul li input {
+      position: absolute;
+      width: 95%;
+      height: 10px;
+      bottom: 10px;
+      left: 10px;
+    }
+
+    #select_map_wrap {
+      position: absolute;
+      z-index: 100;
+      left: 0;
+      top: 30px;
+      width: 179px;
+      height: 257px;
+      border-radius: 10px;
+      background: linear-gradient(to bottom, hsla(0, 0%, 1000%, 0.2) 0%, hsla(0, 0%, 12%, 0.1) 30%, hsla(0, 0%, 12%, 0.1) 80%, hsla(0, 0%, 1000%, 0.3) 100%);
+      color: hsla(0, 0%, 85%, 1);
+      box-sizing: border-box;
+      padding: 10px 20px;
+      font-weight: lighter;
+      border: 1px solid #fff;
+    }
+
+    #select_map_wrap .title {
+      font-size: 16px;
+      margin: 5px 0 10px 0;
+    }
+
+    #select_map_wrap .map-list {
+      list-style: none;
+    }
+
+    #select_map_wrap .map-list li {
+      display: block;
+      position: relative;
+      box-sizing: border-box;
+      padding-left: 28px;
+      margin: 15px 0;
+      line-height: 25px;
+      font-size: 14px;
+    }
+
+    #select_map_wrap .map-list li:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      margin: -10px;
+      height: 18px;
+      width: 18px;
+      border-radius: 100px;
+      border: 2px solid #fff;
+    }
+
+    #select_map_wrap .map-list li.selected:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 4px;
+      height: 14px;
+      width: 14px;
+      margin-top: -6px;
+      border-radius: 100px;
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="nav">
+      <a href="javascript:;" id="nav_back">渗透模式</a>
+    </div>
+    <ul id="gate_list_wrap">
+      <ul class="title clear-float">
+        <li class="id">序号</li>
+        <li class="name">赛题名称</li>
+        <li class="type">赛题类型</li>
+        <li class="range">长度</li>
+        <li class="range">角度</li>
+        <li class="io">输出</li>
+      </ul>
+      <ul id="gate_render_list" class="list"></ul>
+    </ul>
+    <div id="map_wrap" style="width:1200px;height:500px;">
+      <div id="select_map_wrap">
+        <div class="title">选择地图</div>
+        <ul class="map-list">
+          <li data-map="map_ya_zhou" onclick="changeMap(this);" class="selected">亚洲</li>
+          <li data-map="map_bei_mei_zhou" onclick="changeMap(this);" class="">北美洲</li>
+          <li data-map="map_nan_mei_zhou" onclick="changeMap(this);" class="">南美洲</li>
+          <li data-map="map_fei_zhou" onclick="changeMap(this);" class="">非洲及欧洲</li>
+          <li data-map="map_ao_da_li_ya" onclick="changeMap(this);" class="">澳大利亚</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="./d3.v4.min.js"></script>
+  <script type="text/javascript" src="./mapControl.js"></script>
+  <script type="text/javascript">
+    /*
+      new feature:
+      1.随机散布
+      2.记忆上次配置信息
+    */
+
+    var GLOBAL_CAN_IO = true;
+
+    var gates = [
+      {
+        id: 1,
+        name: '空地上的奶地上的奶地上的奶地上的奶牛',
+        type: '逆向工程',
+      },
+      {
+        id: 2,
+        name: '空地上的奶牛',
+        type: '逆向工程',
+      },
+      {
+        id: 3,
+        name: '空地上的奶牛',
+        type: '逆向工程',
+      },
+      {
+        id: 4,
+        name: '空地上的奶牛',
+        type: '逆向工程',
+      }
+    ];
+
+
+    renderGateList(gates);
+
+    var mapControler = new MapControler({
+      domElement: '#map_wrap',
+      radius: 200,
+      mapAlpha: 1,
+      fontSize: 20
+    });
+    mapControler.updateAxis();
+    for (var i = 0; i < gates.length; i++) {
+      mapControler.addGate({
+        id: gates[i].id,
+        angle: 0,
+        length: 0,
+        colorH: 0,
+        colorS: 80,
+        colorL: 100,
+      });
+    }
+
+
+
+
+    (function render() {
+      requestAnimationFrame(render);
+      mapControler.render();
+    }());
+
+    function changeAngle(ele) {
+      var _id = parseInt(ele.dataset.id);
+      var _angle = parseInt(ele.value);
+      mapControler.set({
+        id: _id,
+        angle: _angle,
+      });
+      var allRangeNumber = document.querySelectorAll('.angle-number');
+      for (var i = 0; i < allRangeNumber.length; i++) {
+        if (parseInt(allRangeNumber[i].dataset.id) == _id) {
+          allRangeNumber[i].innerHTML = _angle + '°';
+        }
+      }
+    }
+
+    function changeLength(ele) {
+      var _id = parseInt(ele.dataset.id);
+      var _length = parseInt(ele.value);
+      mapControler.set({
+        id: _id,
+        length: _length,
+      });
+      var allRangeNumber = document.querySelectorAll('.length-number');
+      for (var i = 0; i < allRangeNumber.length; i++) {
+        if (parseInt(allRangeNumber[i].dataset.id) == _id) {
+          allRangeNumber[i].innerHTML = _length + '%';
+        }
+      }
+    }
+
+    function changeMap(ele) {
+      var map = ele.dataset.map;
+      var all_map = document.querySelector('#select_map_wrap').querySelectorAll('li');
+      for (var i = 0; i < all_map.length; i++) {
+        all_map[i].setAttribute('class', '');
+      }
+      ele.setAttribute('class', 'selected');
+      mapControler.mapName = map;
+      mapControler.updateAxis();
+    }
+
+    d3.select('#gate_render_list')
+      .on('click', function () {
+        d3.select('#gate_panel').remove();
+      }, false);
+    function addGateIO(id, io) {
+      var _gate_wrap_ele = document.querySelector('#gate_item_' + id);
+      var _input_ele = _gate_wrap_ele.querySelector('.io-' + io);
+      var _btn_add = _input_ele.querySelector('.btn-add');
+
+      d3.select('#gate_panel').remove();
+      var _gate_panel_ele = d3.select(_input_ele).append('div')
+        .classed('gate_panel', true)
+        .attr('id', 'gate_panel');
+      _gate_panel_ele
+        .selectAll('div')
+        .data(gates)
+        .enter()
+        .append('div')
+        .classed('gate', true)
+        .text(function (d, i) {
+          return d.id + '. ' + d.name;
+        })
+        .attr('title', function (d, i) {
+          return d.name;
+        })
+        .on('click', function (d, i) {
+          var ele = document.createElement('span');
+          ele.setAttribute('class', 'input-mark');
+          ele.innerHTML = d.id;
+          d3.select(ele)
+            .on('click', function () {
+              d3.select(this).remove();
+              mapControler.deleteIo(id, d.id);
+            });
+          _input_ele.insertBefore(ele, _btn_add);
+          mapControler.addIo(id, d.id);
+        });
+
+
+    }
+
+    function renderGateList(result_data) {
+      var gate_render_list = d3.select('#gate_render_list');
+      var all_gate_item = gate_render_list.selectAll('ul')
+        .data(result_data)
+        .enter()
+        .append('ul');
+
+      all_gate_item
+        .classed('grey', function (d, i) {
+          if (i % 2 == 0) {
+            return true;
+          }
+          return false;
+        })
+        .attr('id', function (d, i) {
+          return 'gate_item_' + d.id;
+        });
+
+      all_gate_item.append('li')
+        .classed('id', true)
+        .text(function (d, i) {
+          return d.id;
+        });
+
+      all_gate_item.append('li')
+        .classed('name', true)
+        .text(function (d, i) {
+          return d.name;
+        });
+
+      all_gate_item.append('li')
+        .classed('type', true)
+        .text(function (d, i) {
+          return d.type;
+        });
+
+      var length_range = all_gate_item.append('li')
+        .classed('range', true);
+      length_range.append('span')
+        .attr('data-id', function (d, i) {
+          return d.id;
+        })
+        .attr('class', 'range-number length-number')
+        .text('0%');
+      length_range.append('input')
+        .attr('data-id', function (d, i) {
+          return d.id;
+        })
+        .attr('type', 'range')
+        .attr('min', 0)
+        .attr('max', 150)
+        .attr('value', 0)
+        .on('input', function () {
+          changeLength(d3.select(this)._groups[0][0]);
+        })
+        .on('change', function () {
+          changeLength(d3.select(this)._groups[0][0]);
+        });
+
+      var angle_range = all_gate_item.append('li')
+        .classed('range', true);
+      angle_range.append('span')
+        .attr('data-id', function (d, i) {
+          return d.id;
+        })
+        .attr('class', 'range-number angle-number')
+        .text('0°');
+      angle_range.append('input')
+        .attr('data-id', function (d, i) {
+          return d.id;
+        })
+        .attr('type', 'range')
+        .attr('min', 0)
+        .attr('max', 360)
+        .attr('value', 0)
+        .on('input', function () {
+          changeAngle(d3.select(this)._groups[0][0]);
+        })
+        .on('change', function () {
+          changeAngle(d3.select(this)._groups[0][0]);
+        });
+
+      var gateInput = all_gate_item.append('li');
+      gateInput
+        .attr('class', function (d, i) {
+          if (GLOBAL_CAN_IO) {
+            return 'io io-input open';
+          }
+          return 'io';
+        });
+      gateInput.append('span')
+        .attr('class', 'btn-add')
+        .attr('title', function () {
+          if (GLOBAL_CAN_IO) {
+            return '';
+          }
+          return '该比赛模式下不可用';
+        })
+        .on('click', function (d, i) {
+          if (!GLOBAL_CAN_IO) {
+            return;
+          }
+
+          var _id = d.id;
+          addGateIO(_id, 'input');
+
+          d3.event.stopPropagation();
+        }, false);
+    }
+
+  </script>
+</body>
+
+</html>

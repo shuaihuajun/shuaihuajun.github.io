@@ -1,0 +1,44 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "青峰监测站"
+      },
+      "geometry": {
+        "coordinates": [
+          114.44396448519382,
+          37.98236867568953
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "高水监测站"
+      },
+      "geometry": {
+        "coordinates": [
+          114.44385012673001,
+          37.91543285649351
+        ],
+        "type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "华君"
+      },
+      "geometry": {
+        "coordinates": [
+          114.38897672809634,
+          37.8861982966603
+        ],
+        "type": "Point"
+      }
+    }
+  ]
+}

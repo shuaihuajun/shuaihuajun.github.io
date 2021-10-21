@@ -1,0 +1,23 @@
+import{l as y,m as O,y as C,V as h,i as F,o as U,A as W,p as b,z,f as D,j as w,D as x,M as G,H as V,e as N,C as M,J as R}from"./three-7480ff34.js";import{j as $,T as q}from"./maptalks-89361eda.js";import{T as H}from"./MT-043198cd.js";(function(){const r=document.createElement("link").relList;if(r&&r.supports&&r.supports("modulepreload"))return;for(const e of document.querySelectorAll('link[rel="modulepreload"]'))n(e);new MutationObserver(e=>{for(const o of e)if(o.type==="childList")for(const i of o.addedNodes)i.tagName==="LINK"&&i.rel==="modulepreload"&&n(i)}).observe(document,{childList:!0,subtree:!0});function s(e){const o={};return e.integrity&&(o.integrity=e.integrity),e.referrerPolicy&&(o.referrerPolicy=e.referrerPolicy),e.crossOrigin==="use-credentials"?o.credentials="include":e.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function n(e){if(e.ep)return;e.ep=!0;const o=s(e);fetch(e.href,o)}})();const I=t=>{fetch("./data/landmark.json").then(r=>r.json()).then(r=>{const s=new y({color:"hsl(180, 40%, 50%)"}),n=new O({color:"hsl(180, 50%, 50%)",linewidth:1,linecap:"round",linejoin:"round"}),e=t.getScene();r.features.forEach(o=>{const i=t.toExtrudePolygon(o,{topColor:"#fff",height:60,interactive:!1},s);t.addMesh(i);const a=i.getObject3d(),p=new C(a.geometry),m=new h;a.getWorldPosition(m);const f=new F(p,n);f.name="surroundLine",f.scale.copy(a.scale),f.rotation.copy(a.rotation),f.position.copy(m),e.add(f)})})},k=(t,r)=>{fetch("./data/subway.json").then(s=>s.json()).then(s=>{const n=new U({sizeAttenuation:!1,size:40,transparent:!1,blending:W,depthTest:!1,depthWrite:!0,map:new b().load("./imgs/subway-icon.svg")});var e=new z({color:16776960});s.features.forEach(o=>{const{geometry:i,properties:a}=o;switch(o.geometry.type){case"Point":const p=t.toPoint(i.coordinates,{},n);p.setInfoWindow({title:`${a.name}站`,content:`${a.subway?a.subway+"号线":"换乘点"}`}),t.addMesh(p);break;case"LineString":const m=t.toExtrudeLine(o,{width:6,interactive:!1},e);t.addMesh(m);break}})})},J=({height:t=10,path:r=[],material:s,expand:n=!0})=>{let e=null;n?e=r.reduce((c,[l,u,d])=>c.concat([[[l,u,d],[l,u,d+t]]]),[]):e=r;const i=e.reduce((c,l,u)=>u===e.length-1?c:c.concat([[l,e[u+1]]]),[]).reduce((c,l)=>{const[[u,d],[E,g]]=l;return c.concat(...d,...u,...g,...u,...E,...g)},[]),a=new D,p=new Float32Array(i);a.setAttribute("position",new w(p,3));const f=new Array(i.length/3/6).fill(0).map((c,l)=>i.slice(l*3*6,(l+1)*3*6)).map((c,l)=>new Array(c.length/3).fill(0).map((u,d)=>c.slice(d*3,(d+1)*3)));a.computeBoundingBox();const{min:P,max:A}=a.boundingBox,S=A.x-P.x,_=[].concat(...f.map(c=>{const l=c[0],u=c[5],d=new h(...l).distanceTo(new h(...u))/(S/10);return[0,1,0,0,d,1,0,0,d,0,d,1]}));a.setAttribute("uv",new w(new Float32Array(_),2));const j=s||new y({color:65535,side:x});return new G(a,j)},K=({color:t=new M("#fff"),topColor:r})=>{const s=`
+      varying vec2 vUv;
+      varying vec3 fNormal;
+      varying vec3 vPosition;
+      void main(){
+        vUv = uv;
+        vPosition = position;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );
+      }
+  `,n=`
+      uniform float time;
+      varying vec2 vUv;
+      uniform sampler2D flowTexture;
+      uniform vec3 u_color;
+      uniform vec3 u_top_color;
+      void main( void ) {
+        vec2 position = vUv;
+        vec4 colora = texture2D( flowTexture, vec2( vUv.x, fract(vUv.y - time)));
+        vec4 colorb = vec4(0.1, 0.1, 0.1, 1.0 - vUv.y);
+        vec4 colorc = mix(vec4(u_color, 0.9), vec4(u_top_color, 0.0), vUv.y);
+        gl_FragColor = colora * colorb + colorc;
+      }
+  `,e=new b().load("./imgs/1.png");return e.wrapS=V,new N({uniforms:{time:{value:0},u_color:{value:t},u_top_color:{value:r||t},flowTexture:{value:e}},transparent:!0,depthWrite:!1,side:x,vertexShader:s,fragmentShader:n})},X=(t,r,s)=>{fetch("./data/area.json").then(n=>n.json()).then(n=>{n.features.forEach(e=>{const o=[];e.geometry.coordinates[0].forEach(p=>{const[m,f]=t.coordinateToVector3(p);o.push([m,f,0])});const i=K({color:new M("#f00")});s.push(()=>{i.uniforms.time.value+=.01});const a=J({path:o,height:t.altitudeToVector3(120).x,material:i});t.getScene().add(a)})})},L=[],Z=[114.49946422883345,38.01941509871325];var T=new $("map",{center:Z,zoom:17,pitch:75,bearing:0,centerCross:!0,doubleClickZoom:!1,baseLayer:new q("tile",{urlTemplate:"https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png",subdomains:["a","b","c","d"]})}),v=new H("threelayer",{identifyCountOnEvent:1,forceRenderOnMoving:!0,forceRenderOnRotating:!0});v.prepareToDraw=function(t,r,s){{const n=new R(6710886,16777215,2);n.position.set(-20,80,0).normalize(),r.add(n)}I(v),k(v),X(v,T,L),B()};v.addTo(T);function B(){requestAnimationFrame(B),L.forEach(t=>t()),v.redraw()}

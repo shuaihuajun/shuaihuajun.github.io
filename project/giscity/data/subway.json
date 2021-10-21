@@ -1,0 +1,746 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "体育场"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.52680587768555, 38.04248078885472]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "北宋"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.54069972038269, 38.04300465836629]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "谈固"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.55779075622557, 38.04329194005559]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "朝晖桥"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.5714807510376, 38.04369751228631]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "博物院"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.51676368713379, 38.042818769613774]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 0,
+        "name": "北国商城"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.50573444366455, 38.04254838513133]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "平安大街"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.49530601501463, 38.042818769613774]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "解放广场"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.48161602020264, 38.04268357749736]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 0,
+        "name": "新百广场"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.47140216827393, 38.04261598134555]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "烈士陵园"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.45921421051025, 38.04210900821791]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "长城桥"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.43170547485352, 38.04085845949548]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "时光街"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.41801548004149, 38.04014867909845]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "西王"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.4011926651001, 38.039506490906405]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "白佛"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.5819091796875, 38.04449175139739]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "留村"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.60225105285643, 38.0369376818224]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "火炬广场"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.61950302124025, 38.037275688165614]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "石家庄东站"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.62336540222167, 38.04944287754316]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "南村"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.62310791015625, 38.05924275412214]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": "洨河大道"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.62276458740236, 38.06897374670214]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.62263584136961, 38.0805951805014]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.62173461914062, 38.09295781789665]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.6090316772461, 38.123551418504704]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "东里"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.47187423706055, 38.03531522966035]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "槐安桥"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.47123050689697, 38.02716862452987]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "西三教"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.47123050689697, 38.01682349681326]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "市二中"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.47118759155273, 38.05194366039531]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "市庄"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.4712734222412, 38.06295960543331]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "柏林庄"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.4723892211914, 38.07495361042174]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "高柱"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.4568109512329, 38.078500756177]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "西三庄"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.44170475006102, 38.07860210067055]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.61512565612793, 38.13199110558526]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.61516857147217, 38.14377127683649]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1,
+        "name": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.61564064025879, 38.15338977681851]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "塔谈"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.4865083694458, 37.9991387373021]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 0,
+        "name": "石家庄站"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.48174476623535, 38.00924966702039]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "元村"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.49470520019531, 38.01489630185662]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "仓丰路留村"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.48826789855957, 37.991089575963755]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "南位"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.49045658111572, 37.98185562676391]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "嘉华路"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.49204444885254, 37.97356775986967]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "欧韵公园"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.5044469833374, 38.01820969343027]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "槐中路"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.50612068176268, 38.027574286052044]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "裕华路"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.50594902038574, 38.03487580934793]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "长安公园"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.50577735900877, 38.04917251752295]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "建和桥"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.50573444366455, 38.05839798885803]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "义堂"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.50573444366455, 38.072453613871865]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "庄窠铁道大学"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.51152801513672, 38.084142052615526]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2,
+        "name": "柳辛庄"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.51530456542969, 38.09076242021087]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [114.61529731750487, 38.15349101744113],
+          [114.61503982543945, 38.14400753588854],
+          [114.61499691009521, 38.13219364608514],
+          [114.61267948150633, 38.12777138401275],
+          [114.608473777771, 38.12311252808839],
+          [114.60675716400145, 38.120580416477324],
+          [114.60705757141113, 38.1171366037669],
+          [114.61010456085204, 38.11109265749657],
+          [114.61572647094727, 38.103832507815206],
+          [114.61855888366699, 38.09792255100776],
+          [114.6213912963867, 38.09329556553409],
+          [114.62233543395996, 38.07964931887985],
+          [114.62263584136961, 38.06880481689827],
+          [114.62302207946777, 38.059175173259874],
+          [114.62353706359863, 38.04004728133727],
+          [114.62100505828857, 38.03737708976437],
+          [114.60225105285643, 38.036870080366576],
+          [114.59444046020506, 38.036836279615265],
+          [114.58738088607787, 38.03913469516858],
+          [114.58229541778564, 38.04322434446539],
+          [114.57306861877441, 38.043629917070525],
+          [114.52088356018066, 38.04241319251569],
+          [114.4954776763916, 38.04285256760388],
+          [114.4713807106018, 38.04254838513133],
+          [114.43170547485352, 38.04085845949548],
+          [114.41805839538574, 38.04021627752789],
+          [114.40114974975586, 38.03947269137188]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [114.44172620773317, 38.07846697464792],
+          [114.45687532424928, 38.078331848375626],
+          [114.4710159301758, 38.078061595082],
+          [114.47178840637207, 38.07785890445637],
+          [114.47226047515868, 38.07725082920871],
+          [114.4723677635193, 38.07485226087215],
+          [114.47133779525758, 38.062892028003674],
+          [114.47116613388064, 38.05174089740079],
+          [114.47116613388064, 38.027067208798336],
+          [114.4712519645691, 38.0166882567152],
+          [114.47138071060182, 38.011650385282586],
+          [114.47717428207399, 38.00952017441674],
+          [114.48080062866212, 38.00902987902588],
+          [114.49277400970459, 38.00924966702039],
+          [114.57152366638184, 38.01090650915695],
+          [114.58860397338867, 38.007863300947875],
+          [114.61503982543945, 38.008539580355944],
+          [114.63194847106935, 38.00847195269586],
+          [114.65297698974608, 38.00766041590901]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [114.51536893844606, 38.09077930813702],
+          [114.51154947280885, 38.08412516315602],
+          [114.50560569763184, 38.073247540954526],
+          [114.50575590133667, 38.058414884258895],
+          [114.50633525848389, 38.02206385841717],
+          [114.50541257858276, 38.01944372445592],
+          [114.50202226638794, 38.01587681088618],
+          [114.49476957321168, 38.014845585515566],
+          [114.4859504699707, 38.014744152728156],
+          [114.48240995407104, 38.012901432652406],
+          [114.48170185089111, 38.0091313197206],
+          [114.48120832443237, 38.00267264881879],
+          [114.48610067367552, 38.00057599458946],
+          [114.48820352554323, 37.99114030873815],
+          [114.49047803878786, 37.981771061419856],
+          [114.49206590652466, 37.97344935499082]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "汇通路"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.49504852294922, 38.00921585352567]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "孙村"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.50730085372925, 38.00941873426007]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "塔冢"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.51805114746094, 38.0096892410326]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "东王"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.5286512374878, 38.009790680814994]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "南王"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.54092502593994, 38.010196438540824]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "位同"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.55637454986572, 38.01039931656155]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "东二环南路"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.57212448120117, 38.0107712581413]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "西仰陵"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.58894729614258, 38.007863300947875]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "中仰陵"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.60353851318358, 38.00826906934131]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "南豆"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.61529731750487, 38.00840432497338]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "太行南大街"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.63233470916748, 38.008539580355944]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "subway": 3,
+        "name": "乐乡"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [114.65327739715576, 38.00769423012114]
+      }
+    }
+  ]
+}

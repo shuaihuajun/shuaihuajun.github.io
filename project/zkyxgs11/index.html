@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>答题关卡可视化快速实现 | 作品集 - 陈帅华的官方网站</title>
+  <link rel="stylesheet" type="text/css" href="./main.css">
+</head>
+
+<body>
+  <script type="text/javascript" src="./universal.js"></script>
+  <script type="text/javascript">
+
+    var planetData = [
+      {
+        uid: 0,
+        x: -window.innerWidth / 2 + Math.round(window.innerWidth * Math.random()),
+        y: -window.innerHeight / 2 + Math.round(window.innerHeight * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.01 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '150',
+        output: 1,
+      },
+      {
+        uid: 1,
+        x: -window.innerWidth / 2 + Math.round(window.innerWidth * Math.random()),
+        y: -window.innerHeight / 2 + Math.round(window.innerHeight * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.02 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '150',
+        output: 0,
+      },
+      {
+        uid: 2,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.03 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '150',
+        output: 0,
+      },
+      {
+        uid: 3,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.04 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '50',
+        output: 0,
+      },
+      {
+        uid: 4,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.05 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '50',
+        output: 0,
+      },
+      {
+        uid: 5,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.06 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '50',
+        output: 0,
+      },
+      {
+        uid: 6,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.07 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '50',
+        output: 0,
+      },
+      {
+        uid: 7,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.08 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '150',
+        output: 0,
+      },
+      {
+        uid: 8,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.09 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '50',
+        output: 0,
+      },
+      {
+        uid: 9,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.10 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '50',
+        output: 0,
+      },
+      {
+        uid: 10,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.11 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '50',
+        output: 0,
+      },
+      {
+        uid: 11,
+        x: -window.screen.width / 2 + Math.round(window.screen.width * Math.random()),
+        y: -window.screen.height / 2 + Math.round(window.screen.height * Math.random()),
+        color: 'hsla(0, 0%, 100%, 1)',
+        name: '#No.12 Openssl协议heartbleed分析漏洞',
+        type: '二进制攻击',
+        keywords: '二进制',
+        score: '50',
+        output: 0,
+      },
+    ];
+
+    var universal;
+    universal = new Universal({
+      emitClickPlanet: function (planets, planet) {
+        console.log(planet.name);
+        showPop(planet);
+      }
+    });
+    for (var i = 0, l = planetData.length; i < l; i++) {
+      universal.addPlanet(planetData[i]);
+    }
+    universal.render();
+
+    function showPop(planet) {
+      var _w = document.querySelector('#popWrap');
+      _w ? _w.remove() : null;
+
+      _w = document.createElement('div');
+      _w.setAttribute('class', 'pop-wrap');
+      _w.style.cssText = '';
+      document.body.appendChild(_w);
+
+      _content = document.createElement('div');
+      _content.setAttribute('class', 'pop-content');
+      _w.appendChild(_content);
+
+      _close = document.createElement('div');
+      _close.setAttribute('class', 'close');
+      _close.addEventListener('click', function () {
+        console.log(_w);
+        _w.remove();
+      }, false);
+      _content.appendChild(_close);
+
+      _title = document.createElement('div');
+      _title.setAttribute('class', 'title');
+      _title.innerHTML = planet.name;
+      _content.appendChild(_title);
+
+    }
+  </script>
+</body>
+
+</html>

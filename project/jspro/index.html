@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>原型链可视化 | 作品集 - 陈帅华的官方网站</title>
+  <style>
+    html,
+    body {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      user-select: none;
+      background-color: #010101;
+      font-family: sans-serif;
+      font-style: italic;
+      background-image: url("./b.png");
+      background-size: 80px;
+    }
+
+    body::before {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: '';
+      background-color: hsla(210, 100%, 6%, .61);
+    }
+
+    #app {
+      margin: 0 auto;
+      cursor: grab;
+      overflow: hidden;
+    }
+
+    #searchHistory {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: hsla(0, 0%, 0%, .8);
+      overflow: auto;
+      z-index: 1;
+    }
+
+    #searchHistory a {
+      display: block;
+      float: left;
+      color: #fff;
+      padding: 2px 10px;
+      text-decoration: none;
+      font-size: 14px;
+      opacity: 1;
+    }
+
+    #searchHistory a:hover {
+      color: #111;
+      background-color: hsla(0, 0%, 100%, .9);
+      opacity: 1;
+    }
+
+    #searchHistory .title {
+      text-align: center;
+      color: #fff;
+      background-color: hsla(0, 0%, 100%, .1);
+      line-height: 1;
+      padding: 10px 0;
+      border-bottom: 2px solid hsla(0, 0%, 100%, 1);
+    }
+
+    #customInputWrap {
+      position: fixed;
+      z-index: 1;
+      top: 15px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      display: flex;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    #customInput {
+      border: 2px solid #333;
+      border-right: none;
+      outline: none;
+      color: #fff;
+      font-size: 18px;
+      padding: 0 15px;
+      width: 400px;
+      background-color: hsla(0, 0%, 10%, .75);
+      border-radius: 20px 0 0 20px;
+    }
+
+    #searchResult {
+      overflow: hidden;
+      padding: 10px 0;
+    }
+
+    #submitCustomInput {
+      color: #fff;
+      background-image: linear-gradient(45deg, #818181, transparent);
+      text-align: center;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px 0 15px;
+      font-size: 18px;
+      white-space: nowrap;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    #infoWindow {
+      position: absolute;
+      z-index: 1;
+      background-color: hsla(0, 0%, 0%, .85);
+      color: #fff;
+      line-height: 1;
+      border-radius: 5px;
+      pointer-events: none;
+      margin-top: 10px;
+      margin-left: 10px;
+      font-style: italic;
+      font-size: 1em;
+      word-break: break-all;
+      text-shadow: 1px 1px 2px hsla(0, 0%, 0%, .5);
+    }
+
+    #infoWindow div {
+      padding: 8px 10px;
+    }
+
+    #infoWindow div:last-child {
+      border-bottom: none;
+    }
+
+    #infoWindow div:first-child {
+      font-size: 2em;
+      border-bottom: 1px solid #fff;
+    }
+
+    .hue-circle {
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      pointer-events: none;
+      background-image: linear-gradient(to right, hsl(0, 100%, 50%), hsl(30, 100%, 50%), hsl(60, 100%, 50%), hsl(90, 100%, 50%), hsl(120, 100%, 50%), hsl(150, 100%, 50%), hsl(180, 100%, 50%), hsl(210, 100%, 50%), hsl(240, 100%, 50%), hsl(270, 100%, 50%), hsl(300, 100%, 50%), hsl(330, 100%, 50%), hsl(360, 100%, 50%));
+    }
+
+  </style>
+  <script type="module" crossorigin src="./assets/index-e8dbed10.js"></script>
+</head>
+
+<body>
+  <div class="hue-circle"></div>
+  <div id="searchHistory"></div>
+  <div id="infoWindow" style="display:none;"></div>
+  <div id="customInputWrap">
+    <input type="text" id="customInput">
+    <div id="submitCustomInput">Search MDN</div>
+  </div>
+  
+  <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js" async></script>
+  <script src="https://unpkg.com/three@0.150.1/build/three.js"></script>
+  <script src="https://unpkg.com/fabric@5.3.0/dist/fabric.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet-src.js"></script>
+</body>
+
+</html>
