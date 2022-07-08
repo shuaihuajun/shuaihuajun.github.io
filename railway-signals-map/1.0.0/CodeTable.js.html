@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CodeTable.html">CodeTable</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="DangerousZone.html">DangerousZone</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Layer.html">Layer</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Layers.html">Layers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Layers.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Layers.html#get">get</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="OriginalStationLayer.html">OriginalStationLayer</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Station.html">Station</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Station.html#redrawDangerousZone">redrawDangerousZone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Station.html#redrawTrackSignalColor">redrawTrackSignalColor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="WorkingArea.html">WorkingArea</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#generateUID">generateUID</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#initStationFromSVG">initStationFromSVG</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="CodeTable.html">CodeTable</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CodeTable.html#parse">parse</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="CodeTable.html#set">set</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="DangerousZone.html">DangerousZone</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Layer.html">Layer</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Layers.html">Layers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Layers.html#add">add</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Layers.html#get">get</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="OriginalStationLayer.html">OriginalStationLayer</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Station.html">Station</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Station.html#redrawDangerousZone">redrawDangerousZone</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Station.html#redrawLightSignalColor">redrawLightSignalColor</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Station.html#redrawTrackSignalColor">redrawTrackSignalColor</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="WorkingArea.html">WorkingArea</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#generateUID">generateUID</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#initStationFromSVG">initStationFromSVG</a></span></li>
 </nav>
 
 <div id="main">
@@ -40,11 +40,53 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>/**
- * 代表码位表
+ * 代表码位表。每一个站场图有一套对应的码位表，没有站场图的码位表没有意义。码位表对当前站场图的所有（信号机信号、红白光带信号）的全部状态（主要是颜色状态）进行编码。此后，后端将依据这套编码规则定时向前端发送一组编号，前端根据码位表中的编码规则将这些编号转换成可视化语言呈现在页面上。
  * @class
  */
 class CodeTable {
+  /**
+   * 码位表原始数据对象
+   */
+  #originalData = {};
+  /**
+   * 当前解析后的编码值
+   */
+  #currentFrameData = [];
+  /**
+   * 初始化一个码位表实例
+   * @param {*} data
+   */
   constructor() {}
+  /**
+   * 设置码位表数据
+   * @param {*} data
+   */
+  set(data) {
+    /**
+     * 每次设置前先置空
+     */
+    this.#originalData = {};
+    for (let key in data) {
+      const value = data[key];
+      /**
+       * 过滤掉值为 NULL 的码位
+       */
+      if (value === "NULL") continue;
+      this.#originalData[key] = value;
+    }
+  }
+  /**
+   * 按照一组编号从码位表解析出需要变化的颜色值
+   * @param {*} numbers - 一组编号
+   * @returns numbers
+   */
+  parse(numbers = []) {
+    return numbers
+      .map((num) => {
+        return this.#originalData[num];
+      })
+      .filter((d) => d);
+  }
 }
 
 export default CodeTable;
@@ -60,7 +102,7 @@ export default CodeTable;
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Thu Jul 07 2022 08:33:10 GMT+0800 (GMT+08:00) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.10</a> on Fri Jul 08 2022 11:32:41 GMT+0800 (GMT+08:00) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

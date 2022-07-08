@@ -67,34 +67,29 @@
             .style("opacity", 0.85)
             .style("filter", "grayscale(1)");
 
-          const urlCount = 1;
+          const urlCount = 4;
           const allSignalsData = [];
           const mwbData = await fetchData("../static/mwb_data.json");
-          let currentIndex = 0;
+          let currentIndex = 1;
 
           for (let num = 0; num < urlCount; num++) {
-            const signalData = await fetchData(`./data/${num}.json`);
+            const signalData = await fetchData(`./data/${num + 1}.json`);
             allSignalsData.push(signalData);
             updateLoading(Math.round((allSignalsData.length / urlCount) * 100));
           }
-
-          const signalData = allSignalsData[0];
 
           /**
            * 初始化码位表
            */
           station.codeTable.set(mwbData);
 
+          const signalData = allSignalsData[3];
           station.redrawLightSignalColor(station.codeTable.parse(signalData));
 
           // setInterval(async function() {
           //   const signalData = allSignalsData[currentIndex];
 
-          //   const resultSignalData = signalData.map((signalIndex) => {
-          //     return mwbData[signalIndex];
-          //   });
-
-          //   station.redrawLightSignalColor(resultSignalData)
+          //   station.redrawLightSignalColor(station.codeTable.parse(signalData));
 
           //   currentIndex++;
           //   if (currentIndex > urlCount - 1) {
