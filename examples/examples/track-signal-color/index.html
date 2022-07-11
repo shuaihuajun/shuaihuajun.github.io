@@ -72,6 +72,8 @@
           const mwbData = await fetchData("../static/mwb_data.json");
           let currentIndex = 0;
 
+          station.codeTable.set(mwbData);
+
           for (let num = 0; num < urlCount + 1; num++) {
             const signalData = await fetchData(`./data/${num}.json`);
             updateLoading(Math.round((num / urlCount) * 100));
@@ -81,11 +83,7 @@
           setInterval(async function() {
             const signalData = allSignalsData[currentIndex];
 
-            const resultSignalData = signalData.map((signalIndex) => {
-              return mwbData[signalIndex];
-            });
-
-            station.redrawTrackSignalColor(resultSignalData);
+            station.redrawTrackSignalColor(station.codeTable.parse(signalData));
 
             currentIndex++;
             if (currentIndex > urlCount) {

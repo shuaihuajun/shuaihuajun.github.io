@@ -82,19 +82,17 @@
            * 初始化码位表
            */
           station.codeTable.set(mwbData);
-          const signalData = allSignalsData[3];
-          station.redrawLightSignalColor(station.codeTable.parse(signalData));
 
-          // setInterval(async function() {
-          //   const signalData = allSignalsData[currentIndex];
+          setInterval(async function() {
+            const signalData = allSignalsData[currentIndex];
 
-          //   station.redrawLightSignalColor(station.codeTable.parse(signalData));
+            station.redrawLightSignalColor(station.codeTable.parse(signalData));
 
-          //   currentIndex++;
-          //   if (currentIndex > urlCount - 1) {
-          //     currentIndex = 0;
-          //   }
-          // }, 1000);
+            currentIndex++;
+            if (currentIndex > urlCount - 1) {
+              currentIndex = 0;
+            }
+          }, 1000);
 
           setTimeout(() => {
             const loadingEl = document.querySelector("#loading");
