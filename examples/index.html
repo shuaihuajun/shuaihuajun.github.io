@@ -13,7 +13,6 @@
         margin: 0;
         background-color: #669ecc;
         color: #fff;
-        background-image: url(./static/railway-tracks-g8006b7209_1920.jpg);
         background-attachment: fixed;
         background-position: center;
         background-size: cover;
@@ -27,25 +26,19 @@
         max-width: 100%;
         -moz-column-count: 4;
         column-count: 4;
-        -moz-column-gap: 10px;
-        column-gap: 10px;
+        -moz-column-gap: 20px;
+        column-gap: 20px;
         margin-top: 60px;
       }
       .page-list a.card {
         break-inside: avoid;
         box-sizing: border-box;
-        padding-bottom: 10px;
         display: block;
         text-decoration: none;
-        padding: 10px;
-        border-radius: 10px;
         transition: all 270ms;
-        margin-bottom: 10px;
-        background-color: #fff;
+        margin-bottom: 20px;
         cursor: default;
-      }
-      .page-list a.card[href]:hover {
-        box-shadow: 0 0 10px 0px hsla(0, 0%, 0%, 0.1);
+        overflow: hidden;
       }
       .page-list a.card[href] {
         cursor: pointer;
@@ -53,14 +46,17 @@
       .page-list img {
         max-width: 100%;
         display: block;
-        border-radius: 10px;
       }
       .page-list h2 {
+        font-weight: normal;
         max-width: 100%;
         line-height: 1;
-        margin: 10px 0;
+        margin: 0;
+        padding: 10px 0;
         font-size: 18px;
-        color: #333;
+        color: #fff;
+        text-align: center;
+        text-shadow: 1px 1px 2px #205c8e;
       }
       .page-list p {
         max-width: 100%;
@@ -73,82 +69,56 @@
         text-align: center;
         margin: 20px 0;
         line-height: 1;
+        letter-spacing: .1em;
         font-size: 2em;
-        text-shadow: 2px 3px 1px #4c4c4c;
+        text-shadow: 2px 3px 6px rgb(64 114 155);
       }
     </style>
   </head>
   <body>
     <main>
-      <h1>列车接近预警系统 Web 端</h1>
-      <h1>各功能独立演示页面</h1>
+      <h1>列车接近预警系统网页端 各功能独立演示</h1>
+      <h1></h1>
       <div class="page-list">
         <a
           class="card"
           target="_blank"
           href="./examples/track-turnount-light-signal/index.html"
         >
-          <h2>红白光带+信号机+道岔</h2>
           <img src="./examples/track-turnount-light-signal/demo.gif" alt="" />
-        </a>
-        <a
-          class="card"
-          target="_blank"
-          href="./examples/light-signal-color/index.html"
-        >
-          <h2>信号机（红绿黄蓝月白）色可视化</h2>
-          <img src="./examples/light-signal-color/demo.gif" alt="" />
-        </a>
-        <a
-          class="card"
-          target="_blank"
-          href="./examples/track-signal-color/index.html"
-        >
-          <h2>轨道红白光带道岔定反</h2>
-          <img src="./examples/track-signal-color/demo.gif" alt="" />
+          <h2>轨道+道岔+信号机</h2>
         </a>
         <a
           class="card"
           target="_blank"
           href="./examples/dangerous-zone/index.html"
         >
-          <h2>危险警示区域可视化</h2>
-          <p>
-            危险区域层置于原始站场图图层之下
-          </p>
           <img src="./examples/dangerous-zone/demo.gif" alt="" />
-        </a>
-        <a class="card" target="_blank" href="./examples/load-svg/index.html">
-          <h2>加载任意原始站场SVG</h2>
-          <p>加载任意 SVG 并实现缩放、拖拽交互</p>
-          <img src="./examples/load-svg/demo.gif" alt="" />
-        </a>
-        <a class="card" target="_blank" href="./examples/layers/index.html">
-          <h2>图层概念</h2>
-          <p>
-            不同类型放置在不同层中, 类似 PhotoShop 图层的概念
-          </p>
-          <img src="./examples/layers/demo.gif" alt="" />
+          <h2>危险区域</h2>
         </a>
         <a class="card">
+          <img src="./examples/static/building.jpg" alt="" />
           <h2>机车导航</h2>
-          <img src="./examples/static/building.jpg" alt="" />
         </a>
         <a class="card">
-          <h2>工作区域层</h2>
           <img src="./examples/static/building.jpg" alt="" />
+          <h2>工作区域</h2>
         </a>
         <a class="card">
-          <h2>肩章手台实时位置可视化</h2>
           <img src="./examples/static/building.jpg" alt="" />
+          <h2>肩章手台</h2>
         </a>
         <a class="card">
-          <h2>机头实时位置可视化</h2>
           <img src="./examples/static/building.jpg" alt="" />
+          <h2>机头</h2>
         </a>
         <a class="card">
-          <h2>机具实时位置可视化</h2>
           <img src="./examples/static/building.jpg" alt="" />
+          <h2>机具</h2>
+        </a>
+        <a class="card">
+          <img src="./examples/static/building.jpg" alt="" />
+          <h2>气象</h2>
         </a>
       </div>
     </main>
