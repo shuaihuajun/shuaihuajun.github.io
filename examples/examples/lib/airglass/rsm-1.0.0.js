@@ -313,20 +313,20 @@ class Station {
       id: "dangerous_zone"
     }));
     /**
-     * 原始站场图层
-     */
-
-    this.layers.add(new _Layer__WEBPACK_IMPORTED_MODULE_0__["default"]({
-      $: $svg.select("g#all"),
-      id: "station_original_map"
-    }));
-    /**
      * 工作区域层
      */
 
     this.layers.add(new _Layer__WEBPACK_IMPORTED_MODULE_0__["default"]({
       $: this.layers.$element.append("g"),
       id: "working_area"
+    }));
+    /**
+     * 原始站场图层
+     */
+
+    this.layers.add(new _Layer__WEBPACK_IMPORTED_MODULE_0__["default"]({
+      $: $svg.select("g#all"),
+      id: "station_original_map"
     }));
     /**
      * 轨道信号颜色层
@@ -757,6 +757,28 @@ class Station {
         }
       }
     });
+  }
+  /**
+   * 重新绘制工作区域
+   * @param {*} data
+   */
+
+
+  redrawWorkingArea(data) {
+    const $paper = this.layers.get("working_area");
+    $paper.attr("opacity", 0.5);
+    /**
+     * 清空画布
+     */
+
+    $paper.selectAll("polygon").remove();
+    /**
+     * 将每一块工作区域的数据转换成一个个 polygon 元素
+     */
+
+    const $polygon = $paper.selectAll("polygon").data(data).enter().append("polygon").attr("points", function (d) {
+      return d.map(point => "".concat(point.x, ",").concat(point.y)).join(" ");
+    }).attr("stroke", "none").attr("fill", "#4169E1");
   }
 
 }
